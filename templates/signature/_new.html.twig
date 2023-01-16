@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    {% for flash_error in app.flashes('verify_email_error') %}#}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Création d'une signature</h2>
+                    {{ form_start(registrationForm) }}
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                {{ form_row(registrationForm.firstname) }}
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                {{ form_row(registrationForm.lastname) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                {{ form_row(registrationForm.phoneNumber) }}
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                {{ form_row(registrationForm.picture) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form_row(registrationForm.email) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form_row(registrationForm.secondEmail) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form_row(registrationForm.thirdEmail) }}
+                        </div>
+                    </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
