@@ -6,12 +6,15 @@ use App\Entity\EntityInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
+/**
+ *
+ */
 class FileUploader
 {
     /**
-     * @var
+     * @var string
      */
-    private $targetDirectory;
+    private string $targetDirectory;
 
     /**
      * @param $targetDirectory
@@ -26,7 +29,7 @@ class FileUploader
      * @param EntityInterface $entity
      * @return void
      */
-    public function upload(UploadedFile $file, EntityInterface $entity)
+    public function upload(UploadedFile $file, EntityInterface $entity): void
     {
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
@@ -39,7 +42,7 @@ class FileUploader
      * @param EntityInterface $entity
      * @return void
      */
-    public function removePreviousPicture(EntityInterface $entity)
+    public function removePreviousPicture(EntityInterface $entity): void
     {
         $previousPicture = $entity->getPicture();
         if ($previousPicture) {
