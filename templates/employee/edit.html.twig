@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition d'un employé{% endblock %}
+
+{% block body %}
+    {% set formSubmitText = "Editer" %}
+
+    {% for flash_error in app.flashes('verify_email_error') %}#}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <h2 class="title">Edition d'un employé</h2>
+                        </div>
+                        <div class="col-2">
+                            {% if employee.picture is defined %}
+                                <img src="{{ employee.picture }}"
+                                     alt="{{ employee.firstname }} {{ employee.lastname }}"
+                                     id="current_picture"
+                                     height="100px"
+                                     width="100px"
+                                     class="rounded-circle mx-auto d-block"
+                                >
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {{ include('employee/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

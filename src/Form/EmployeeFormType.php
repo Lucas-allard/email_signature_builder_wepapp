@@ -18,7 +18,7 @@ class EmployeeFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', TextType::class, [
+            ->add('firstEmail', TextType::class, [
                 'label' => 'Email Mili-Atlas *',
                 'required' => true,
                 'constraints' => [
@@ -125,26 +125,25 @@ class EmployeeFormType extends AbstractType
                     'placeholder' => 'Rôle dans l\'entreprise',
                 ],
             ])
-            ->add('picture', FileType::class, [
-                'label' => 'Photo de la signature *',
-                'required' => true,
-                'mapped' => false,
-                'data_class' => null,
-                'help' => 'Vous devez sélectionner une image ayant une mesure de 220 par 294 pixels',
-                'row_attr' => ['placeholder' => 'Sélectionnez un fichier'],
-            ])
-            ->add('phoneNumber', TextType::class, [
-                'required' => false,
-                'label' => 'Numéro de téléphone',
+            ->add('picture', TextType::class, [
+                'label' => 'Photo de l\'employé',
+                'help' => 'Vous devez saisir une URL valide (photos hébergées sur un serveur externe)',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez saisir votre numéro de téléphone',
+                        'message' => 'Veuillez saisir votre rôle dans l\'entreprise',
                     ]),
+                ],
+                'attr' => ['placeholder' => 'Sélectionnez un fichier'],
+            ])
+            ->add('phoneNumber', TextType::class, [
+                'required' => true,
+                'label' => 'Numéro de téléphone *',
+                'constraints' => [
                     new Length([
                         'min' => 10,
                         'minMessage' => 'Votre numéro de téléphone doit comporter au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
-                        'max' => 10,
+                        'max' => 14,
                     ]),
                 ],
                 'attr' => [
@@ -182,8 +181,8 @@ class EmployeeFormType extends AbstractType
                 ],
             ])
             ->add('linkedinUrl', TextType::class, [
-                'required' => false,
-                'label' => 'Lien Linkedin',
+                'required' => true,
+                'label' => 'Lien Linkedin *',
                 'constraints' => [
                     new Length([
                         'min' => 2,
@@ -212,17 +211,22 @@ class EmployeeFormType extends AbstractType
                 ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'S\'inscrire',
+                'label' => $options['submit_label'],
                 'attr' => [
                     'class' => 'btn btn-primary',
                 ],
-            ]);;
+
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Employee::class,
+            'submit_label'=> 'Enregistrer',
         ]);
+
+        $resolver->setAllowedTypes('submit_label', 'string');
+
     }
 }

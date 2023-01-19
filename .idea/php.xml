@@ -141,6 +141,10 @@
       <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/verify-email-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/font-awesome-4.7/fonts" />
+      <path value="$PROJECT_DIR$/vendor/font-awesome-4.7/css" />
+      <path value="$PROJECT_DIR$/vendor/mdi-font/css" />
+      <path value="$PROJECT_DIR$/vendor/mdi-font/fonts" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

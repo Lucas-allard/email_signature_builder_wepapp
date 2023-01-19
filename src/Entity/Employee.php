@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
-class Employee
+class Employee implements EntityInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,7 +27,7 @@ class Employee
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 14, nullable: true)]
     private ?string $phoneNumber = null;
 
     #[ORM\Column(length: 255)]
@@ -36,7 +36,7 @@ class Employee
     #[ORM\Column(length: 255)]
     private ?string $thirdEmail = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $facebookUrl = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -50,6 +50,9 @@ class Employee
 
     #[ORM\OneToMany(mappedBy: 'employee', targetEntity: Signature::class)]
     private Collection $signatures;
+
+    #[ORM\Column(length: 255)]
+    private ?string $firstEmail = null;
 
     public function __construct()
     {
@@ -116,7 +119,11 @@ class Employee
 
     public function setPhoneNumber(?string $phoneNumber): self
     {
-        $this->phoneNumber = $phoneNumber;
+        if (strlen($phoneNumber) >= 14) {
+            $this->phoneNumber = substr($phoneNumber, 0, 14);
+        }
+        // add 1 space between each 2 number on the phoneNumber
+        $this->phoneNumber = preg_replace('/(\d{2})/', '$1 ', $phoneNumber);
 
         return $this;
     }
@@ -219,6 +226,18 @@ class Employee
                 $signature->setEmployee(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFirstEmail(): ?string
+    {
+        return $this->firstEmail;
+    }
+
+    public function setFirstEmail(string $firstEmail): self
+    {
+        $this->firstEmail = $firstEmail;
 
         return $this;
     }

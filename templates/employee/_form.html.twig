@@ -1,0 +1,75 @@
+{{ form_start(employeeForm) }}
+
+<div class="row row-space">
+    <div class="col-2">
+        <div class="input-group">
+            {{ form_row(employeeForm.firstname) }}
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group">
+            {{ form_row(employeeForm.lastname) }}
+        </div>
+    </div>
+</div>
+<div class="row row-space">
+    <div class="col-2">
+        <div class="input-group">
+            {{ form_row(employeeForm.phoneNumber) }}
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="input-group">
+            {{ form_row(employeeForm.picture) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.position) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.firstEmail) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.secondEmail) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.thirdEmail) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.facebookUrl) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.twitterUrl) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.linkedinUrl) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(employeeForm.instagramUrl) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_label(employeeForm.submit, {
+            label: formSubmitText,
+        }) }}
+        {{ form_widget(employeeForm.submit, ) }}
+    </div>
+</div>
+{{ form_end(employeeForm) }}

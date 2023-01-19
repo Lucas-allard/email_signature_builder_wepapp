@@ -14,8 +14,9 @@ use App\Entity\Signature;
  * @method Signature[]    findAll()
  * @method Signature[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SignatureRepository extends ServiceEntityRepository
+class SignatureRepository extends ServiceEntityRepository implements RepositoryInterface
 {
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Signature::class);

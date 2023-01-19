@@ -7,14 +7,14 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SignatureRepository;
 
 #[ORM\Entity(repositoryClass: SignatureRepository::class)]
-class Signature
+class Signature implements EntityInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToOne(inversedBy: 'signature', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'employee', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 

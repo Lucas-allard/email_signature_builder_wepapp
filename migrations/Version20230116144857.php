@@ -20,16 +20,16 @@ final class Version20230116144857 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE signature ADD employee_id INT NOT NULL');
-        $this->addSql('ALTER TABLE signature ADD CONSTRAINT FK_AE8801418C03F15C FOREIGN KEY (employee_id) REFERENCES employee (id)');
-        $this->addSql('CREATE INDEX IDX_AE8801418C03F15C ON signature (employee_id)');
+        $this->addSql('ALTER TABLE employee ADD employee_id INT NOT NULL');
+        $this->addSql('ALTER TABLE employee ADD CONSTRAINT FK_AE8801418C03F15C FOREIGN KEY (employee_id) REFERENCES employee (id)');
+        $this->addSql('CREATE INDEX IDX_AE8801418C03F15C ON employee (employee_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE signature DROP FOREIGN KEY FK_AE8801418C03F15C');
-        $this->addSql('DROP INDEX IDX_AE8801418C03F15C ON signature');
-        $this->addSql('ALTER TABLE signature DROP employee_id');
+        $this->addSql('ALTER TABLE employee DROP FOREIGN KEY FK_AE8801418C03F15C');
+        $this->addSql('DROP INDEX IDX_AE8801418C03F15C ON employee');
+        $this->addSql('ALTER TABLE employee DROP employee_id');
     }
 }
