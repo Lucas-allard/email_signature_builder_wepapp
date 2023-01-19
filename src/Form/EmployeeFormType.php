@@ -15,60 +15,33 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class EmployeeFormType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     * @return void
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('firstEmail', TextType::class, [
-                'label' => 'Email Mili-Atlas *',
-                'required' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez entrer une adresse email',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre adresse email doit contenir au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
+                'label' => 'Email Mili-Atlas',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Email',
+                    'placeholder' => 'Email Mili-Atlas',
                 ],
             ])
             ->add('secondEmail', TextType::class, [
-                'label' => 'Email 1806 Patrimoine *',
-                'required' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez entrer une adresse email',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre adresse email doit contenir au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
+                'label' => 'Email Mili-Invest',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Email',
+                    'placeholder' => 'Email Mili-Invest',
                 ],
             ])
             ->add('thirdEmail', TextType::class, [
-                'label' => 'Email 1806 Mili-Invest *',
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez entrer une adresse email',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre adresse email doit contenir au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
+                'label' => 'Email 1806 Patrimoine',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Email',
+                    'placeholder' => 'Email 1806 Patrimoine',
                 ],
             ])
             ->add('firstname', TextType::class, [
@@ -219,6 +192,10 @@ class EmployeeFormType extends AbstractType
             ]);
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     * @return void
+     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

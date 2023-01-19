@@ -20,6 +20,12 @@ class EmployeeRepository extends ServiceEntityRepository implements RepositoryIn
     {
         parent::__construct($registry, Employee::class);
     }
+
+    /**
+     * @param Employee $entity
+     * @param bool $flush
+     * @return void
+     */
     public function save(Employee $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -29,6 +35,11 @@ class EmployeeRepository extends ServiceEntityRepository implements RepositoryIn
         }
     }
 
+    /**
+     * @param Employee $entity
+     * @param bool $flush
+     * @return void
+     */
     public function remove(Employee $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);

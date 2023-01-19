@@ -6,69 +6,164 @@ use App\Repository\EmployeeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
+
+/**
+ *
+ */
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
 class Employee implements EntityInterface
 {
+    /**
+     * @var int|null
+     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 30)]
     private ?string $firstName = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 50)]
     private ?string $lastName = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 255)]
     private ?string $position = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 255)]
+    #[Assert\Regex(
+        '/^https:\/\/mili-atlas\.fr\/wp-content\/uploads\/.*$/',
+        message: 'L\'URL doit commencer par https://mili-atlas.fr/wp-content/uploads/'
+    )]
     private ?string $picture = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 14, nullable: true)]
+    #[Assert\Length(
+        min: 14,
+        max: 14,
+        exactMessage: 'Votre numéro de téléphone doit contenir {{ limit }} caractères'
+    )]
+    #[Assert\Regex(
+        pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/',
+        message: 'Le numéro de téléphone doit être au format 0X XX XX XX XX'
+    )]
     private ?string $phoneNumber = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $secondEmail = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $thirdEmail = null;
-
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $facebookUrl = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $instagramUrl = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $linkedinUrl = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $twitterUrl = null;
-
-    #[ORM\OneToMany(mappedBy: 'employee', targetEntity: Signature::class)]
-    private Collection $signatures;
-
-    #[ORM\Column(length: 255)]
+    #[Assert\Regex(
+        pattern: '/^[a-zA-Z0-9._%+-]+@mili-atlas\.fr$/',
+        message: 'L\'adresse email doit être au format mail@mili-atlas.fr'
+    )]
     private ?string $firstEmail = null;
 
+    /**
+     * @var string|null
+     */
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^[a-zA-Z0-9._%+-]+@mili-invest\.fr$/',
+        message: 'L\'adresse email doit être au format mail@mili-invest.fr'
+    )]
+    private ?string $secondEmail = null;
+
+    /**
+     * @var string|null
+     */
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^[a-zA-Z0-9._%+-]+@1806-patrimoine\.fr$/',
+        message: 'L\'adresse email doit être au format mail@1806-patrimoine.fr'
+    )]
+    private ?string $thirdEmail = null;
+
+    /**
+     * @var string|null
+     */
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^https:\/\/www\.facebook\.com\/.*$/',
+        message: 'L\'URL doit commencer par https://www.facebook.com/'
+    )]
+    private ?string $facebookUrl = null;
+
+    /**
+     * @var string|null
+     */
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^https:\/\/www\.instagram\.com\/.*$/',
+        message: 'L\'URL doit commencer par https://www.instagram.com/'
+    )]
+    private ?string $instagramUrl = null;
+
+    /**
+     * @var string|null
+     */
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^https:\/\/www\.linkedin\.com\/.*$/',
+        message: 'L\'URL doit commencer par https://www.linkedin.com/'
+    )]
+    private ?string $linkedinUrl = null;
+
+    /**
+     * @var string|null
+     */
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^https:\/\/www\.twitter\.com\/.*$/',
+        message: 'L\'URL doit commencer par https://www.twitter.com/'
+    )]
+    private ?string $twitterUrl = null;
+
+    /**
+     *
+     */
     public function __construct()
     {
         $this->signatures = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
+    /**
+     * @param string $firstName
+     * @return $this
+     */
     public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
@@ -76,11 +171,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
+    /**
+     * @param string $lastName
+     * @return $this
+     */
     public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
@@ -88,11 +190,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPosition(): ?string
     {
         return $this->position;
     }
 
+    /**
+     * @param string $position
+     * @return $this
+     */
     public function setPosition(string $position): self
     {
         $this->position = $position;
@@ -100,11 +209,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPicture(): ?string
     {
         return $this->picture;
     }
 
+    /**
+     * @param string $picture
+     * @return $this
+     */
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
@@ -112,27 +228,37 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
 
+    /**
+     * @param string|null $phoneNumber
+     * @return $this
+     */
     public function setPhoneNumber(?string $phoneNumber): self
     {
-        if (strlen($phoneNumber) >= 14) {
-            $this->phoneNumber = substr($phoneNumber, 0, 14);
-        }
-        // add 1 space between each 2 number on the phoneNumber
-        $this->phoneNumber = preg_replace('/(\d{2})/', '$1 ', $phoneNumber);
+     $this->phoneNumber = $phoneNumber;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getSecondEmail(): ?string
     {
         return $this->secondEmail;
     }
 
+    /**
+     * @param string $secondEmail
+     * @return $this
+     */
     public function setSecondEmail(string $secondEmail): self
     {
         $this->secondEmail = $secondEmail;
@@ -140,11 +266,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getThirdEmail(): ?string
     {
         return $this->thirdEmail;
     }
 
+    /**
+     * @param string $thirdEmail
+     * @return $this
+     */
     public function setThirdEmail(string $thirdEmail): self
     {
         $this->thirdEmail = $thirdEmail;
@@ -152,11 +285,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getFacebookUrl(): ?string
     {
         return $this->facebookUrl;
     }
 
+    /**
+     * @param string $facebookUrl
+     * @return $this
+     */
     public function setFacebookUrl(string $facebookUrl): self
     {
         $this->facebookUrl = $facebookUrl;
@@ -164,11 +304,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getInstagramUrl(): ?string
     {
         return $this->instagramUrl;
     }
 
+    /**
+     * @param string|null $instagramUrl
+     * @return $this
+     */
     public function setInstagramUrl(?string $instagramUrl): self
     {
         $this->instagramUrl = $instagramUrl;
@@ -176,11 +323,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getLinkedinUrl(): ?string
     {
         return $this->linkedinUrl;
     }
 
+    /**
+     * @param string|null $linkedinUrl
+     * @return $this
+     */
     public function setLinkedinUrl(?string $linkedinUrl): self
     {
         $this->linkedinUrl = $linkedinUrl;
@@ -188,11 +342,18 @@ class Employee implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getTwitterUrl(): ?string
     {
         return $this->twitterUrl;
     }
 
+    /**
+     * @param string|null $twitterUrl
+     * @return $this
+     */
     public function setTwitterUrl(?string $twitterUrl): self
     {
         $this->twitterUrl = $twitterUrl;
@@ -201,40 +362,17 @@ class Employee implements EntityInterface
     }
 
     /**
-     * @return Collection<int, Signature>
+     * @return string|null
      */
-    public function getSignatures(): Collection
-    {
-        return $this->signatures;
-    }
-
-    public function addSignature(Signature $signature): self
-    {
-        if (!$this->signatures->contains($signature)) {
-            $this->signatures->add($signature);
-            $signature->setEmployee($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSignature(Signature $signature): self
-    {
-        if ($this->signatures->removeElement($signature)) {
-            // set the owning side to null (unless already changed)
-            if ($signature->getEmployee() === $this) {
-                $signature->setEmployee(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getFirstEmail(): ?string
     {
         return $this->firstEmail;
     }
 
+    /**
+     * @param string $firstEmail
+     * @return $this
+     */
     public function setFirstEmail(string $firstEmail): self
     {
         $this->firstEmail = $firstEmail;

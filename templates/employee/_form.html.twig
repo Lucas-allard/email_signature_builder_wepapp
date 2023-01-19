@@ -9,6 +9,7 @@
     <div class="col-2">
         <div class="input-group">
             {{ form_row(employeeForm.lastname) }}
+
         </div>
     </div>
 </div>
@@ -16,6 +17,9 @@
     <div class="col-2">
         <div class="input-group">
             {{ form_row(employeeForm.phoneNumber) }}
+            {% for error in form_errors(employeeForm.phoneNumber) %}
+                {{ error }}
+            {% endfor %}
         </div>
     </div>
     <div class="col-2">
@@ -32,44 +36,62 @@
 <div class="row">
     <div class="col">
         {{ form_row(employeeForm.firstEmail) }}
+        {% for error in form_errors(employeeForm.firstEmail) %}
+            {{ error }}
+        {% endfor %}
     </div>
 </div>
 <div class="row">
     <div class="col">
         {{ form_row(employeeForm.secondEmail) }}
+        {% for error in form_errors(employeeForm.secondEmail) %}
+            {{ error }}
+        {% endfor %}
     </div>
 </div>
 <div class="row">
     <div class="col">
         {{ form_row(employeeForm.thirdEmail) }}
+        {% for error in form_errors(employeeForm.thirdEmail) %}
+            {{ error }}
+        {% endfor %}
     </div>
 </div>
 <div class="row">
     <div class="col">
         {{ form_row(employeeForm.facebookUrl) }}
+        {% for error in form_errors(employeeForm.facebookUrl) %}
+            {{ error }}
+        {% endfor %}
     </div>
 </div>
 <div class="row">
     <div class="col">
         {{ form_row(employeeForm.twitterUrl) }}
+        {% for error in form_errors(employeeForm.twitterUrl) %}
+            {{ error }}
+        {% endfor %}
     </div>
 </div>
 <div class="row">
     <div class="col">
         {{ form_row(employeeForm.linkedinUrl) }}
+        {% for error in form_errors(employeeForm.linkedinUrl) %}
+            {{ error }}
+        {% endfor %}
     </div>
 </div>
 <div class="row">
     <div class="col">
         {{ form_row(employeeForm.instagramUrl) }}
+        {% for error in form_errors(employeeForm.instagramUrl) %}
+            {{ error }}
+        {% endfor %}
     </div>
 </div>
 <div class="row">
     <div class="col">
-        {{ form_label(employeeForm.submit, {
-            label: formSubmitText,
-        }) }}
-        {{ form_widget(employeeForm.submit, ) }}
+        {{ form_row(employeeForm.submit) }}
     </div>
 </div>
 {{ form_end(employeeForm) }}

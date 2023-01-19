@@ -13,6 +13,10 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 
 class LoginController extends AbstractController
 {
+    /**
+     * @param AuthenticationUtils $authenticationUtils
+     * @return Response
+     */
     #[Route('/connexion', name: 'app_login')]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
@@ -28,6 +32,9 @@ class LoginController extends AbstractController
         ]);
     }
 
+    /**
+     * @return void
+     */
     #[Route('/logout', name: 'app_logout')]
     public function logout()
     {
