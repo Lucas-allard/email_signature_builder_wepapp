@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\EmployeeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -135,14 +133,6 @@ class Employee implements EntityInterface
         message: 'L\'URL doit commencer par https://www.twitter.com/'
     )]
     private ?string $twitterUrl = null;
-
-    /**
-     *
-     */
-    public function __construct()
-    {
-        $this->signatures = new ArrayCollection();
-    }
 
     /**
      * @return int|null
