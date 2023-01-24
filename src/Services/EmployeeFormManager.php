@@ -27,7 +27,7 @@ class EmployeeFormManager
      * @param array $options
      * @return FormInterface
      */
-    public function createForm($data = null, array $options = [])
+    public function createForm($data = null, array $options = []): FormInterface
     {
         return $this->formFactory->create(EmployeeFormType::class, $data, $options);
     }
@@ -37,7 +37,8 @@ class EmployeeFormManager
      * @param Request $request
      * @return bool
      */
-    public function handleForm(FormInterface $form, Request $request) {
+    public function handleForm(FormInterface $form, Request $request): bool
+    {
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             return true;

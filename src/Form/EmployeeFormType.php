@@ -188,7 +188,6 @@ class EmployeeFormType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-primary',
                 ],
-
             ]);
     }
 

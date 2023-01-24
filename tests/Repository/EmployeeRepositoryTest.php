@@ -4,10 +4,7 @@ namespace App\Tests\Repository;
 
 
 use App\Entity\Employee;
-use App\Entity\User;
 use App\Repository\EmployeeRepository;
-use App\Repository\UserRepository;
-use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Exception;
 use Liip\TestFixturesBundle\Services\DatabaseToolCollection;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

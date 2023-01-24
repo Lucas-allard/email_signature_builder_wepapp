@@ -12,3 +12,5 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./styles/main.css";
 import "./styles/modal.css";
 
+import "./js/darkMode.js";
+import "./js/modalDelete.js";
