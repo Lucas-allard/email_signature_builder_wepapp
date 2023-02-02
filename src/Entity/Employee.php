@@ -89,8 +89,8 @@ class Employee implements EntityInterface
      */
     #[ORM\Column(length: 255, nullable: true)]
     #[Assert\Regex(
-        pattern: '/^[a-zA-Z0-9._%+-]+@1806-patrimoine\.fr$/',
-        message: 'L\'adresse email doit être au format mail@1806-patrimoine.fr'
+        pattern: '/^[a-zA-Z0-9._%+-]+@mili-formations\.fr$/',
+        message: 'L\'adresse email doit être au format mail@mili-formations.fr'
     )]
     private ?string $thirdEmail = null;
 

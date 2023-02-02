@@ -8,11 +8,11 @@
         <div class="d-flex justify-content-between align-items-center bg-light bd-gradient text-primary p-3">
             <h3 class="table-title text-dark">Signature Générateur</h3>
             <div class="p-2">
-                <a href="{{ path('app_employee_new') }}" class="btn btn-dark"><i class="fa-solid fa-plus"></i> Ajouter un employé</a>
+                <a href="{{ path('app_employee_new') }}" class="btn btn-dark"><i class="fa-solid fa-plus"></i> Ajouter un collaborateur</a>
             </div>
         </div>
         <div class="p-5 bg-light bd-gradient vh-100">
-            <table class="table table-hover text-dark p-3">
+            <table class="table text-dark p-3">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                 {% for employee in employees %}
-                    <tr data-employee-id="{{ employee.id }}">
+                    <tr data-employee-id="{{ employee.id }}" class="">
                         <th scope="row">{{ employee.id }}</th>
                         <td>{{ employee.firstname }}</td>
                         <td>{{ employee.lastname }}</td>
