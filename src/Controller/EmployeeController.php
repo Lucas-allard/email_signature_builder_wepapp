@@ -14,7 +14,6 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/salaries', name: 'app_employee_')]
-#[IsGranted('ROLE_USER')]
 class EmployeeController extends AbstractController
 {
 
@@ -39,7 +38,6 @@ class EmployeeController extends AbstractController
      * @return Response
      */
     #[Route('/', name: 'index')]
-    #[IsGranted('ROLE_USER')]
     public function index(): Response
     {
         $employees = $this->employeeRepository->findAll();
@@ -54,7 +52,6 @@ class EmployeeController extends AbstractController
      * @return Response
      */
     #[Route('/signature/{employee}', name: 'show')]
-    #[IsGranted('ROLE_USER')]
     public function show(Employee $employee): Response
     {
         return $this->render('employee/show.html.twig', [
