@@ -629,6 +629,13 @@ input {
 
 
 pre {
-    height: 300px;
-    padding: 2rem;
+    padding: 0 2rem;
+}
+
+
+@media (prefers-color-scheme: light) {
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Styles pour le thème sombre */
 }

@@ -1,7 +1,5 @@
 <?php
 
-// generate en entityInterface for all the entities
-
 namespace App\Entity;
 
 interface EntityInterface

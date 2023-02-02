@@ -4,98 +4,68 @@
 
 {% block body %}
 
-    <div class="container vh-100">
-        <div class="d-flex justify-content-between align-items-center bg-white bd-gradient text-primary p-3">
-            <h3 class="table-title">Signature Générateur</h3>
+    <div class="container vh-100 overflow-hidden">
+        <div class="d-flex justify-content-between align-items-center bg-light bd-gradient text-primary p-3">
+            <h3 class="table-title text-dark">Signature Générateur</h3>
             <div class="p-2">
-                <a href="{{ path('app_employee_new') }}" class="btn btn-primary">Ajouter un employé</a>
+                <a href="{{ path('app_employee_new') }}" class="btn btn-dark"><i class="fa-solid fa-plus"></i> Ajouter un collaborateur</a>
             </div>
         </div>
-
-        <table class="table table-hover bg-white bd-gradient text-primary p-3">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Rôle</th>
-                <th scope="col" class="text-center">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for employee in employees %}
-                <tr data-employee-id="{{ employee.id }}">
-                    <th scope="row">{{ employee.id }}</th>
-                    <td>{{ employee.firstname }}</td>
-                    <td>{{ employee.lastname }}</td>
-                    <td>{{ employee.position }}</td>
-                    <td class="text-center">
-                        <div class="btn-group-sm dropdown">
-                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                Action
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
-                                       href="{{ path('app_employee_edit', {employee: employee.id}) }}">Editer</a>
-                                    <input type="hidden" name="csrf_token" value={{ csrf_token("employee") }}>
-                                </li>
-                                <li>
-                                    <button class="dropdown-item" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#deleteModal" data-employee-id="{{ employee.id }}">
-                                        Supprimer
-                                    </button>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item"
-                                       href="{{ path('app_employee_show', {employee: employee.id}) }}">Signature
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
+        <div class="p-5 bg-light bd-gradient vh-100">
+            <table class="table text-dark p-3">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Rôle</th>
+                    <th scope="col" class="text-center">Action</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for employee in employees %}
+                    <tr data-employee-id="{{ employee.id }}" class="">
+                        <th scope="row">{{ employee.id }}</th>
+                        <td>{{ employee.firstname }}</td>
+                        <td>{{ employee.lastname }}</td>
+                        <td>{{ employee.position }}</td>
+                        <td class="text-center">
+                            <div class="btn-group-sm dropdown">
+                                <button type="button" class="btn btn-light btn-sm dropdown-toggle"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                    Action
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item"
+                                           href="{{ path('app_employee_edit', {employee: employee.id}) }}"><i
+                                                    class="fa-solid fa-pen"></i> Editer</a>
+                                        <input type="hidden" name="csrf_token" value={{ csrf_token("employee") }}>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-item" type="button" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal" data-employee-id="{{ employee.id }}">
+                                            <i class="fa-solid fa-trash"></i> Supprimer
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
+                                           href="{{ path('app_employee_show', {employee: employee.id}) }}"><i class="fa-solid fa-signature"></i> Signature
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
     {{ include('shared/_modal.html.twig') }}
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let deleteButtons = document.querySelectorAll('.dropdown-item[data-bs-toggle="modal"]');
-            deleteButtons.forEach(function (button) {
-                button.addEventListener('click', function (event) {
-                    let employeeId = event.target.dataset.employeeId;
-                    let csrfToken = document.querySelector("[name='csrf_token']").value;
-                    let deleteLink = document.querySelector("#deleteLink");
-                    let employeeRow = document.querySelector('tr[data-employee-id]');
 
-                    deleteLink.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        fetch("/salaries/" + employeeId + "/supprimer", {
-                            method: 'DELETE',
-                            headers: {
-                                'X-CSRF-TOKEN': csrfToken,
-                            },
-                        })
-                            .then(response => {
-                                if (response.ok) {
-                                    //close modal & delete the employee in table
-                                    let modal = bootstrap.Modal.getInstance(document.querySelector('#deleteModal'));
-                                    modal.hide();
-                                    employeeRow.remove();
-                                }
-                            });
-                    });
-                })
-
-            });
-        })
-        ;
-    </script>
 {% endblock %}
 
 

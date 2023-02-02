@@ -1,0 +1,9 @@
+App\Entity\User:
+    user{1..2}:
+        email: user<current()>\@domain.com
+        password: '000000'
+        roles: ['ROLE_USER']
+    user{3..4}:
+        email: user<current()>\@domain.com
+        password: '000000'
+        roles: ['ROLE_ADMIN']

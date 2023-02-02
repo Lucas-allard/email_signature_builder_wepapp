@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\EmployeeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -91,8 +89,8 @@ class Employee implements EntityInterface
      */
     #[ORM\Column(length: 255, nullable: true)]
     #[Assert\Regex(
-        pattern: '/^[a-zA-Z0-9._%+-]+@1806-patrimoine\.fr$/',
-        message: 'L\'adresse email doit être au format mail@1806-patrimoine.fr'
+        pattern: '/^[a-zA-Z0-9._%+-]+@mili-formations\.fr$/',
+        message: 'L\'adresse email doit être au format mail@mili-formations.fr'
     )]
     private ?string $thirdEmail = null;
 
@@ -135,14 +133,6 @@ class Employee implements EntityInterface
         message: 'L\'URL doit commencer par https://www.twitter.com/'
     )]
     private ?string $twitterUrl = null;
-
-    /**
-     *
-     */
-    public function __construct()
-    {
-        $this->signatures = new ArrayCollection();
-    }
 
     /**
      * @return int|null

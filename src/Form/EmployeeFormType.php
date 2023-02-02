@@ -38,26 +38,15 @@ class EmployeeFormType extends AbstractType
                 ],
             ])
             ->add('thirdEmail', TextType::class, [
-                'label' => 'Email 1806 Patrimoine',
+                'label' => 'Email Mili-Formations',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Email 1806 Patrimoine',
+                    'placeholder' => 'Email Mili-Formations',
                 ],
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom *',
                 'required' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre prénom',
-                    ]),
-                    new Length([
-                        'min' => 2,
-                        'minMessage' => 'Votre prénom doit comporter au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
                 'attr' => [
                     'placeholder' => 'Prénom',
                 ],
@@ -65,17 +54,6 @@ class EmployeeFormType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => 'Nom *',
                 'required' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre nom',
-                    ]),
-                    new Length([
-                        'min' => 2,
-                        'minMessage' => 'Votre nom doit comporter au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
                 'attr' => [
                     'placeholder' => 'Nom',
                 ],
@@ -83,17 +61,6 @@ class EmployeeFormType extends AbstractType
             ->add('position', TextType::class, [
                 'label' => 'Rôle dans l\'entreprise *',
                 'required' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre rôle dans l\'entreprise',
-                    ]),
-                    new Length([
-                        'min' => 2,
-                        'minMessage' => 'Votre rôle doit comporter au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
                 'attr' => [
                     'placeholder' => 'Rôle dans l\'entreprise',
                 ],
@@ -101,11 +68,6 @@ class EmployeeFormType extends AbstractType
             ->add('picture', TextType::class, [
                 'label' => 'Photo de l\'employé',
                 'help' => 'Vous devez saisir une URL valide (photos hébergées sur un serveur externe)',
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre rôle dans l\'entreprise',
-                    ]),
-                ],
                 'attr' => ['placeholder' => 'Sélectionnez un fichier'],
             ])
             ->add('phoneNumber', TextType::class, [
@@ -126,14 +88,6 @@ class EmployeeFormType extends AbstractType
             ->add('facebookUrl', TextType::class, [
                 'required' => false,
                 'label' => 'Lien Facebook',
-                'constraints' => [
-                    new Length([
-                        'min' => 2,
-                        'minMessage' => 'Votre lien doit comporter au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
                 'attr' => [
                     'placeholder' => 'Lien Facebook',
                 ],
@@ -141,14 +95,6 @@ class EmployeeFormType extends AbstractType
             ->add('twitterUrl', TextType::class, [
                 'required' => false,
                 'label' => 'Lien Twitter',
-                'constraints' => [
-                    new Length([
-                        'min' => 2,
-                        'minMessage' => 'Votre lien doit comporter au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
                 'attr' => [
                     'placeholder' => 'Lien Twitter',
                 ],
@@ -156,14 +102,6 @@ class EmployeeFormType extends AbstractType
             ->add('linkedinUrl', TextType::class, [
                 'required' => true,
                 'label' => 'Lien Linkedin *',
-                'constraints' => [
-                    new Length([
-                        'min' => 2,
-                        'minMessage' => 'Votre lien doit comporter au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
                 'attr' => [
                     'placeholder' => 'Lien Linkedin',
                 ],
@@ -171,14 +109,6 @@ class EmployeeFormType extends AbstractType
             ->add('instagramUrl', TextType::class, [
                 'required' => false,
                 'label' => 'Lien Instagram',
-                'constraints' => [
-                    new Length([
-                        'min' => 2,
-                        'minMessage' => 'Votre lien doit comporter au moins {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
                 'attr' => [
                     'placeholder' => 'Lien Instagram',
                 ],
@@ -188,7 +118,6 @@ class EmployeeFormType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-primary',
                 ],
-
             ]);
     }
 

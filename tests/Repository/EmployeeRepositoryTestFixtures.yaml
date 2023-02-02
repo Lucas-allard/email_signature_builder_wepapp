@@ -1,0 +1,16 @@
+App\Entity\Employee:
+    employee{1..10}:
+        firstName: 'Employee <current()>'
+        lastName: 'Employee <current()>'
+        position: 'Employee <current()>'
+        picture: 'https://mili-atlas.fr/wp-content/uploads/<current()>.jpg'
+        phoneNumber: '0000000000'
+        firstEmail: 'employee<current()>\mili-atlas.fr'
+        secondEmail: 'employee<current()>\mili-invest.fr'
+        thirdEmail: 'employee<current()>\1806-patrimoine.fr'
+        facebookUrl: 'https://www.facebook.com/employee<current()>'
+        twitterUrl: 'https://twitter.com/employee<current()>'
+        linkedinUrl: 'https://www.linkedin.com/in/employee<current()>'
+        instagramUrl: 'https://www.instagram.com/employee<current()>'
+
+
