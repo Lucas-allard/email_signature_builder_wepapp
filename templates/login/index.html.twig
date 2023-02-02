@@ -32,6 +32,8 @@
                         </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn-dark" type="submit">Se connecter</button>
+                            <a href="{{ path('app_register') }}" class="btn btn--radius-2 btn-dark" type="submit">Inscription</a>
+
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     </form>
