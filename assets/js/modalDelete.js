@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             deleteLink.addEventListener('click', function (event) {
                 event.preventDefault();
-                fetch("/salaries/" + employeeId + "/supprimer", {
+                fetch("/collaborateur/" + employeeId + "/supprimer", {
                     method: 'DELETE',
                     headers: {
                         'X-CSRF-TOKEN': csrfToken,
