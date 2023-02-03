@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-#[Route('/collaborateur', name: 'app_employee_')]
+#[Route('/collaborateurs', name: 'app_employee_')]
 class EmployeeController extends AbstractController
 {
 
