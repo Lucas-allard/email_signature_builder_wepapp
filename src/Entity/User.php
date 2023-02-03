@@ -48,6 +48,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    public function __construct()
+    {
+        $this->roles = ['ROLE_USER'];
+    }
+
     /**
      * @return int|null
      */
