@@ -43,7 +43,6 @@ class EmailVerifier
 
         $email->context($context);
 
-        dd($this->mailer);
         $this->mailer->send($email);
     }
 
