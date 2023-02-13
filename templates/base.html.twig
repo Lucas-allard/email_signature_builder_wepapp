@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+          href={{ asset("images/favicon.png") }}
+    >
     <!-- Font special for pages-->
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
@@ -33,10 +34,10 @@
         <div class="alert alert-{{ type }}">{{ message }}</div>
     {% endfor %}
 {% endfor %}
-<div>
+<div class="bg-mili-atlas">
     {% block body %}{% endblock %}
 </div>
-<footer class="bg-mili-atlas">
+<footer>
 
 </footer>
 

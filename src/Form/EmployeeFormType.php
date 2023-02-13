@@ -38,12 +38,19 @@ class EmployeeFormType extends AbstractType
                 ],
             ])
             ->add('thirdEmail', TextType::class, [
-                'label' => 'Email Mili-Formations',
+                'label' => 'Email 1806-Patrimoine',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Email Mili-Formations',
+                    'placeholder' => 'Email 1806-Patrimoine',
                 ],
             ])
+//            ->add('fourEmail', TextType::class, [
+//                'label' => 'Email 1806-Patrimoine',
+//                'required' => false,
+//                'attr' => [
+//                    'placeholder' => 'Email 1806-Patrimoine',
+//                ],
+//            ])
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom *',
                 'required' => true,
@@ -100,8 +107,8 @@ class EmployeeFormType extends AbstractType
                 ],
             ])
             ->add('linkedinUrl', TextType::class, [
-                'required' => true,
-                'label' => 'Lien Linkedin *',
+                'required' => false,
+                'label' => 'Lien Linkedin',
                 'attr' => [
                     'placeholder' => 'Lien Linkedin',
                 ],
@@ -129,7 +136,7 @@ class EmployeeFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Employee::class,
-            'submit_label'=> 'Enregistrer',
+            'submit_label' => 'Enregistrer',
         ]);
 
         $resolver->setAllowedTypes('submit_label', 'string');

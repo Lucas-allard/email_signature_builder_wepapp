@@ -164,11 +164,11 @@ h6 {
 
 
 .bg-blue {
-    background: #1E2D51;
+    background:  #1C3867;
 }
 
 .text-blue {
-    color: #1E2D51;
+    color: #1C3867;
 }
 
 .bg-red {
@@ -192,35 +192,13 @@ h6 {
 }
 
 .bg-mili-atlas {
-    background-image: url('../../public/images/background-mili-atlas.svg');
+    background-image: url('../../public/images/background-mili-atlas.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     width: 100%;
-    height: 400px;
-    /*position: fixed;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*z-index: -1;*/
+    min-height: 100vh;
 }
-
-@media (max-width: 1600px) {
-    .bg-mili-atlas {
-        height: 250px;
-    }
-}
-
-@media (max-width: 1300px) {
-    .bg-mili-atlas {
-        height: 200px;
-    }
-}
-
-@media (max-width: 767px) {
-    .bg-mili-atlas {
-        height: 300px;
-    }
-}
-
 
 /* ==========================================================================
    #SPACING
@@ -312,7 +290,6 @@ h6 {
 
 .btn--blue {
     background: #1E2D51;
-;
 }
 
 .btn--blue:hover {
