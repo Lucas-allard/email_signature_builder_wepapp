@@ -8,7 +8,8 @@
         <div class="d-flex justify-content-between align-items-center bg-blue text-primary p-3">
             <h3 class="table-title text-light">Signature Générateur</h3>
             <div class="p-2">
-                <a href="{{ path('app_employee_new') }}" class="btn btn-light"><i class="fa-solid fa-plus"></i> Ajouter un collaborateur</a>
+                <a href="{{ path('app_employee_new') }}" class="btn btn-light"><i class="fa-solid fa-plus"></i> Ajouter
+                    un collaborateur</a>
             </div>
         </div>
         <div class="p-5 bg-light">
@@ -25,7 +26,7 @@
                 <tbody>
                 {% for employee in employees %}
                     <tr data-employee-id="{{ employee.id }}" class="">
-                        <th scope="row">{{ employee.id }}</th>
+                        <th scope="row">{{ loop.index }}</th>
                         <td>{{ employee.firstname }}</td>
                         <td>{{ employee.lastname }}</td>
                         <td>{{ employee.position }}</td>
@@ -51,7 +52,8 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item"
-                                           href="{{ path('app_employee_show', {employee: employee.id}) }}"><i class="fa-solid fa-signature"></i> Signature
+                                           href="{{ path('app_employee_show', {employee: employee.id}) }}"><i
+                                                    class="fa-solid fa-signature"></i> Signature
                                         </a>
                                     </li>
                                 </ul>
