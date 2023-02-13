@@ -6,6 +6,7 @@ use App\Entity\Employee;
 use App\Form\EmployeeFormType;
 use App\Repository\EmployeeRepository;
 use App\Services\EmployeeFormManager;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,12 +37,20 @@ class EmployeeController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param PaginatorInterface $paginator
      * @return Response
      */
     #[Route('/', name: 'index')]
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
-        $employees = $this->employeeRepository->findBy([], ['lastName' => 'ASC']);
+        $data = $this->employeeRepository->findBy([], ['lastName' => 'ASC']);
+
+        $employees = $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            20
+        );
 
         return $this->render('employee/index.html.twig', [
             'employees' => $employees,
