@@ -2,20 +2,25 @@
 
 {% block body %}
 
+
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
     {% for flash_error in app.flashes('verify_email_error') %}#}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="page-wrapper d-flex justify-content-center align-items-center p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
-            <div class="card card-4 bg-light bg-gradient">
+            <div class="card card-4 bg-blue bg-gradient">
                 <div class="card-body">
-                    <h2 class="title text-dark">Connexion</h2>
+                    <h2 class="title text-light">Connexion</h2>
                     <form action="{{ path('app_login') }}" method="post">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <div class="mb-3">
-                                        <label for="username" class="form-label required text-dark">Email:</label>
+                                        <label for="username" class="form-label required text-light">Email:</label>
                                         <input type="text" id="username" name="_username" value="{{ last_username }}"
                                                class="form-control">
                                     </div>
@@ -24,15 +29,15 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <div class="mb-3">
-                                        <label for="password" class="form-label required text-dark">Password:</label>
+                                        <label for="password" class="form-label required text-light">Password:</label>
                                         <input type="password" id="password" name="_password" class="form-control">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn-dark" type="submit">Se connecter</button>
-                            <a href="{{ path('register') }}" class="btn btn--radius-2 btn-dark">Inscription</a>
+                            <button class="btn btn--radius-2 btn-light" type="submit">Se connecter</button>
+                            <a href="{{ path('register') }}" class="btn btn--radius-2 btn-light">Inscription</a>
 
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

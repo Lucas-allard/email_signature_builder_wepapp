@@ -28,11 +28,17 @@
 
 
 {{ include('shared/_navbar.html.twig') }}
-
-<div class="bg-gra-02">
+{% for type, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ type }}">{{ message }}</div>
+    {% endfor %}
+{% endfor %}
+<div>
     {% block body %}{% endblock %}
 </div>
+<footer class="bg-mili-atlas">
 
+</footer>
 
 </body>
 </html>

@@ -14,6 +14,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/collaborateurs', name: 'app_employee_')]
+#[IsGranted('ROLE_USER')]
 class EmployeeController extends AbstractController
 {
 
@@ -136,7 +137,6 @@ class EmployeeController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function delete(Employee $employee): Response
     {
-
         $this->employeeRepository->remove($employee, true);
 
         return $this->redirectToRoute('app_employee_index');

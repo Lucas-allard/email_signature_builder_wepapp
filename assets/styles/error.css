@@ -1,0 +1,43 @@
+
+.text-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.error_title {
+    font-size: 5em;
+    font-weight: 700;
+    color: #1E2D51;
+}
+
+.subtitle {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1E2D51;
+    text-align: center;
+}
+
+.isi {
+    font-size: 18px;
+    text-align: center;
+    margin: 30px;
+    padding: 20px;
+}
+
+.buttons {
+    margin: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 15px;
+    text-transform: uppercase;
+    border-radius: 26px;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+

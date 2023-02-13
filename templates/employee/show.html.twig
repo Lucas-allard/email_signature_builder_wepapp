@@ -95,72 +95,73 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container bg-gra-02">
-        <div class="d-flex justify-content-between align-items-center bg-light bd-gradient p-3">
-            <h3 class="table-title text-light">Signature - {{ employee.firstName }} {{ employee.lastName }}</h3>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center  p-3">
+            <h3 class="table-title">Signature - {{ employee.firstName }} {{ employee.lastName }}</h3>
             <div class="p-2">
                 <a href="{{ path('app_employee_edit', {employee: employee.id}) }}"
-                   class="btn btn-dark"><i class="fa-solid fa-pen"></i> Modifier</a>
-                <a href="{{ path('app_employee_index') }}" class="btn btn-dark"><i class="fa-solid fa-arrow-left"></i>
+                   class="btn btn-light"><i class="fa-solid fa-pen"></i> Modifier</a>
+                <a href="{{ path('app_employee_index') }}" class="btn btn-light text-blue"><i class="fa-solid fa-arrow-left "></i>
                     Retour a la liste</a>
             </div>
         </div>
-        {% if employee.firstEmail %}
-            <div class="d-flex flex-column justify-content-between bg-white bd-gradient align-items-center p-3">
-                <h4 class="p-5">Signature Mili-Atlas :</h4>
-                <div>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                           style="background-color: #FFFFFF; padding: 10px">
-                        <tbody>
-                        <tr>
-                            <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
-                                <img class="w1"
-                                     src="{{ employee.picture }}"
-                                     alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                                     width="120px"
-                                     style="display: block; border-radius: 50%;margin: 0 20px 0 20px">
-                            </td>
-                            <td width="258" rowspan="2" colspan="2">
-                                <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
-                                    {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
-                                <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0;">
-                                    <span style="margin-right: 2em">{{ employee.position }}</span>
-                                    <a href="{{ employee.linkedinUrl }}">
-                                        <img style="width:20px; height:20px"
-                                             src="https://mili-atlas.fr/wp-content/uploads/LinkedIn.png"
-                                             alt="Profil linkedIn">
+        <div class="container page-wrapper">
+            {% if employee.firstEmail %}
+                <div class="d-flex flex-column justify-content-between align-items-center p-3">
+                    <h4 class="p-5">Signature Mili-Atlas :</h4>
+                    <div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                               style="background-color: #FFFFFF; padding: 10px">
+                            <tbody>
+                            <tr>
+                                <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
+                                    <img class="w1"
+                                         src="{{ employee.picture }}"
+                                         alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
+                                         width="120px"
+                                         style="display: block; border-radius: 50%;margin: 0 20px 0 20px">
+                                </td>
+                                <td width="258" rowspan="2" colspan="2">
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
+                                        {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0;">
+                                        <span style="margin-right: 2em">{{ employee.position }}</span>
+                                        <a href="{{ employee.linkedinUrl }}">
+                                            <img style="width:20px; height:20px"
+                                                 src="https://mili-atlas.fr/wp-content/uploads/LinkedIn.png"
+                                                 alt="Profil linkedIn">
+                                        </a>
+                                    </p>
+
+                                    <hr width="220px" align="left" margin-right="20px">
+
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
+                                        {{ employee.phoneNumber }}</p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
+                                        <a href="mailto:{{ employee.firstEmail }}"
+                                           style="text-decoration:none; color: black">{{ employee.firstEmail }}</a></p>
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;">
+                                        <a href="https://www.mili-atlas.fr"
+                                           style="text-decoration: none; color:black; font-weight: 500">www.mili-atlas.fr</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w2" height="30" width="131" valign="middle">
+                                    <img src="https://mili-atlas.fr/wp-content/uploads/motif-mili-atlas.png"
+                                         alt="topographie Mili Atlas" width="100%"
+                                         style="display: block; min-width: 131px;">
+                                    <a href="https://www.mili-atlas.fr">
+                                        <img src="https://mili-atlas.fr/wp-content/uploads/Mili-Atlas_Plan-de-travail-1.png"
+                                             alt="Mili Atlas" style="display: block;min-width: 131px " width="100%">
                                     </a>
-                                </p>
-
-                                <hr width="220px" align="left" margin-right="20px">
-
-                                <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
-                                    {{ employee.phoneNumber }}</p>
-                                <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
-                                    <a href="mailto:{{ employee.firstEmail }}"
-                                       style="text-decoration:none; color: black">{{ employee.firstEmail }}</a></p>
-                                <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;">
-                                    <a href="https://www.mili-atlas.fr"
-                                       style="text-decoration: none; color:black; font-weight: 500">www.mili-atlas.fr</a>
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="w2" height="30" width="131" valign="middle">
-                                <img src="https://mili-atlas.fr/wp-content/uploads/motif-mili-atlas.png"
-                                     alt="topographie Mili Atlas" width="100%"
-                                     style="display: block; min-width: 131px;">
-                                <a href="https://www.mili-atlas.fr">
-                                    <img src="https://mili-atlas.fr/wp-content/uploads/Mili-Atlas_Plan-de-travail-1.png"
-                                         alt="Mili Atlas" style="display: block;min-width: 131px " width="100%">
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <h4 class="p-5">Rendu HTML/CSS Mili-Atlas : </h4>
-                <div class="w-100 p-5">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4 class="p-5">Rendu HTML/CSS Mili-Atlas : </h4>
+                    <div class="w-100 p-5">
                 <pre class="border border-4 w-75 m-auto">
                     <code class="text-danger">
 &lt;style&gt;
@@ -168,65 +169,65 @@
 &lt;/style&gt;
 &lt;table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #FFFFFF; padding: 10px"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px"&gt; &lt;img class="w1" src="{{ employee.picture }}" alt="Profil{{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px" style="display: block; border-radius: 50%;margin: 0 20px 0 20px"&gt; &lt;/td&gt;&lt;td width="258" rowspan="2" colspan="2"&gt; &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;"&gt;{{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0;"&gt; &lt;span style="margin-right: 2em"&gt;{{ employee.position }}&lt;/span&gt; &lt;a href="{{ employee.linkedinUrl }}"&gt; &lt;img style="width:20px; height:20px" src="https://mili-atlas.fr/wp-content/uploads/LinkedIn.png" alt="Profil linkedIn"&gt; &lt;/a&gt; &lt;/p&gt;&lt;hr width="220px" align="left" margin-right="20px"&gt; &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;{{ employee.phoneNumber }}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;"&gt; &lt;a href="mailto:{{ employee.firstEmail }}" style="text-decoration:none; color: black"&gt;{{ employee.firstEmail }}&lt;/a&gt;&lt;/p&gt;&lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;"&gt; &lt;a href="https://www.mili-atlas.fr" style="text-decoration: none; color:black; font-weight: 500"&gt;www.mili-atlas.fr&lt;/a&gt; &lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt; &lt;td class="w2" height="30" width="131" valign="middle"&gt; &lt;img src="https://mili-atlas.fr/wp-content/uploads/motif-mili-atlas.png" alt="topographie Mili Atlas" width="100%" style="display: block; min-width: 131px;"&gt; &lt;a href="https://www.mili-atlas.fr"&gt; &lt;img src="https://mili-atlas.fr/wp-content/uploads/Mili-Atlas_Plan-de-travail-1.png" alt="Mili Atlas" style="display: block;min-width: 131px " width="100%"&gt; &lt;/a&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt; &lt;/table&gt;                    </code>
                 </pre>
+                    </div>
                 </div>
-            </div>
-        {% endif %}
-        {% if employee.secondEmail %}
-            <div class="d-flex flex-column justify-content-between bg-white bd-gradient align-items-center p-3">
-                <h4 class="p-5">Signature Mili-Invest :</h4>
-                <div>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                           style="background-color: #1C3866; padding: 10px">
-                        <tbody>
-                        <tr>
-                            <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
-                                <img class="w1"
-                                     src="{{ employee.picture }}"
-                                     alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                                     width="120px"
-                                     style="display: block; border-radius: 50%;margin: 0 20px 0 20px">
-                            </td>
-                            <td width="258" rowspan="2" colspan="2">
-                                <p style="font-family: 'Montserrat Medium', sans-serif; color:white;font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
-                                    {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
-                                <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0; padding:0;">
-                                    <span style="margin-right: 2em">{{ employee.position }}</span>
-                                    <a href="{{ employee.linkedinUrl }}">
-                                        <img style="width:20px; height:20px"
-                                             src="https://mili-atlas.fr/wp-content/uploads/LinkedIn-1.png"
-                                             alt="Profil linkedIn">
+            {% endif %}
+            {% if employee.secondEmail %}
+                <div class="d-flex flex-column justify-content-between bg-white bd-gradient align-items-center p-3">
+                    <h4 class="p-5">Signature Mili-Invest :</h4>
+                    <div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                               style="background-color: #1C3866; padding: 10px">
+                            <tbody>
+                            <tr>
+                                <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
+                                    <img class="w1"
+                                         src="{{ employee.picture }}"
+                                         alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
+                                         width="120px"
+                                         style="display: block; border-radius: 50%;margin: 0 20px 0 20px">
+                                </td>
+                                <td width="258" rowspan="2" colspan="2">
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; color:white;font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
+                                        {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0; padding:0;">
+                                        <span style="margin-right: 2em">{{ employee.position }}</span>
+                                        <a href="{{ employee.linkedinUrl }}">
+                                            <img style="width:20px; height:20px"
+                                                 src="https://mili-atlas.fr/wp-content/uploads/LinkedIn-1.png"
+                                                 alt="Profil linkedIn">
+                                        </a>
+                                    </p>
+
+                                    <hr width="220px" align="left" margin-right="20px" style="color:white;">
+
+                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
+                                        {{ employee.phoneNumber }}</p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
+                                        <a href="mailto:{{ employee.secondEmail }}"
+                                           style="text-decoration:none; color: white">{{ employee.secondEmail }}</a></p>
+                                    <p style="font-family: 'Montserrat Medium', sans-serif;  color:white; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;">
+                                        <a href="https://www.mili-atlas.fr"
+                                           style="text-decoration: none; color:white; font-weight: 500">www.mili-atlas.fr</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w2" height="30" width="131" valign="middle">
+                                    <img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Carte-mili-Invest_signature.png"
+                                         alt="topographie Mili Atlas" width="100%"
+                                         style="display: block; min-width: 131px;">
+                                    <a href="https://www.mili-atlas.fr">
+                                        <img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Mili-Invest_logo_blanc.png"
+                                             alt="Mili Atlas" style="display: block;min-width: 131px;" width="100%">
                                     </a>
-                                </p>
-
-                                <hr width="220px" align="left" margin-right="20px" style="color:white;">
-
-                                <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
-                                    {{ employee.phoneNumber }}</p>
-                                <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
-                                    <a href="mailto:{{ employee.secondEmail }}"
-                                       style="text-decoration:none; color: white">{{ employee.secondEmail }}</a></p>
-                                <p style="font-family: 'Montserrat Medium', sans-serif;  color:white; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;">
-                                    <a href="https://www.mili-atlas.fr"
-                                       style="text-decoration: none; color:white; font-weight: 500">www.mili-atlas.fr</a>
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="w2" height="30" width="131" valign="middle">
-                                <img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Carte-mili-Invest_signature.png"
-                                     alt="topographie Mili Atlas" width="100%"
-                                     style="display: block; min-width: 131px;">
-                                <a href="https://www.mili-atlas.fr">
-                                    <img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Mili-Invest_logo_blanc.png"
-                                         alt="Mili Atlas" style="display: block;min-width: 131px;" width="100%">
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <h4 class="p-5">Rendu HTML/CSS Mili-Invest : </h4>
-                <div class="w-100 p-5">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4 class="p-5">Rendu HTML/CSS Mili-Invest : </h4>
+                    <div class="w-100 p-5">
                 <pre class="border border-4 w-75 m-auto">
                     <code class="text-danger">
 &lt;style&gt;
@@ -234,65 +235,65 @@ hr{margin:1rem 0!important}a{color:#000;text-decoration:none}.mobile,.mobileplei
 &lt;/style&gt;
 &lt;table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #1C3866; padding: 10px"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px"&gt; &lt;img class="w1" src="{{ employee.picture }}" alt="Profil{{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px" style="display: block; border-radius: 50%;margin: 0 20px 0 20px"&gt; &lt;/td&gt;&lt;td width="258" rowspan="2" colspan="2"&gt; &lt;p style="font-family: 'Montserrat Medium', sans-serif; color:white;font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;"&gt;{{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; color:white;font-size: 11px; line-height:15px; margin:0; padding:0;"&gt; &lt;span style="margin-right: 2em"&gt;{{ employee.position }}&lt;/span&gt; &lt;a href="{{ employee.linkedinUrl }}"&gt; &lt;img style="width:20px; height:20px" src="https://mili-atlas.fr/wp-content/uploads/LinkedIn-1.png" alt="Profil linkedIn"&gt; &lt;/a&gt; &lt;/p&gt;&lt;hr width="220px" align="left" margin-right="20px" style="color:white;"&gt; &lt;p style="font-family: 'Montserrat Regular', sans-serif; color:white;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;{{ employee.phoneNumber }}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; color:white;font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;"&gt; &lt;a href="mailto:{{ employee.secondEmail }}" style="text-decoration:none; color: white"&gt;{{ employee.secondEmail }}&lt;/a&gt;&lt;/p&gt;&lt;p style="font-family: 'Montserrat Medium', sans-serif; color:white; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;"&gt; &lt;a href="https://www.mili-atlas.fr" style="text-decoration: none; color:white; font-weight: 500"&gt;www.mili-atlas.fr&lt;/a&gt; &lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt; &lt;td class="w2" height="30" width="131" valign="middle"&gt; &lt;img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Carte-mili-Invest_signature.png" alt="topographie Mili Atlas" width="100%" style="display: block; min-width: 131px;"&gt; &lt;a href="https://www.mili-atlas.fr"&gt; &lt;img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Mili-Invest_logo_blanc.png" alt="Mili Atlas" style="display: block;min-width: 131px;" width="100%"&gt; &lt;/a&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt; &lt;/table&gt;                    </code>
                 </pre>
+                    </div>
                 </div>
-            </div>
-        {% endif %}
-        {% if employee.thirdEmail %}
-            <div class="d-flex flex-column justify-content-between bg-white bd-gradient align-items-center p-3">
-                <h4 class="p-5">Signature Mili-Formations :</h4>
-                <div>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                           style="background-color: #FFFFFF; padding: 10px">
-                        <tbody>
-                        <tr>
-                            <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
-                                <img class="w1"
-                                     src="{{ employee.picture }}"
-                                     alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                                     width="120px"
-                                     style="display: block; border-radius: 50%;margin: 0 20px 0 20px">
-                            </td>
-                            <td width="258" rowspan="2" colspan="2">
-                                <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
-                                    {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
-                                <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0;">
-                                    <span style="margin-right: 2em">{{ employee.position }}</span>
-                                    <a href="{{ employee.linkedinUrl }}">
-                                        <img style="width:20px; height:20px"
-                                             src="https://mili-atlas-formation.fr/wp-content/uploads/2023/02/LinkedIn-2.png"
-                                             alt="Profil linkedIn">
+            {% endif %}
+            {% if employee.thirdEmail %}
+                <div class="d-flex flex-column justify-content-between bg-white bd-gradient align-items-center p-3">
+                    <h4 class="p-5">Signature Mili-Formations :</h4>
+                    <div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                               style="background-color: #FFFFFF; padding: 10px">
+                            <tbody>
+                            <tr>
+                                <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
+                                    <img class="w1"
+                                         src="{{ employee.picture }}"
+                                         alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
+                                         width="120px"
+                                         style="display: block; border-radius: 50%;margin: 0 20px 0 20px">
+                                </td>
+                                <td width="258" rowspan="2" colspan="2">
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
+                                        {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0;">
+                                        <span style="margin-right: 2em">{{ employee.position }}</span>
+                                        <a href="{{ employee.linkedinUrl }}">
+                                            <img style="width:20px; height:20px"
+                                                 src="https://mili-atlas-formation.fr/wp-content/uploads/2023/02/LinkedIn-2.png"
+                                                 alt="Profil linkedIn">
+                                        </a>
+                                    </p>
+
+                                    <hr width="220px" align="left" margin-right="20px">
+
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
+                                        {{ employee.phoneNumber }}</p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
+                                        <a href="mailto:{{ employee.thirdEmail }}"
+                                           style="text-decoration:none; color: black">{{ employee.thirdEmail }}</a></p>
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;">
+                                        <a href="https://www.mili-atlas.fr"
+                                           style="text-decoration: none; color:black; font-weight: 500">www.mili-atlas.fr</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w2" height="30" width="131" valign="middle">
+                                    <img src="https://mili-atlas-formation.fr/wp-content/uploads/2023/02/Carte-Mili-Atlas-formation-signature.png"
+                                         alt="topographie Mili Atlas" width="100%"
+                                         style="display: block; min-width: 131px;">
+                                    <a href="https://www.mili-atlas.fr">
+                                        <img src="https://mili-atlas.fr/wp-content/uploads/Mili-Atlas_Plan-de-travail-1.png"
+                                             alt="Mili Atlas" style="display: block;min-width: 131px " width="100%">
                                     </a>
-                                </p>
-
-                                <hr width="220px" align="left" margin-right="20px">
-
-                                <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
-                                    {{ employee.phoneNumber }}</p>
-                                <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
-                                    <a href="mailto:{{ employee.thirdEmail }}"
-                                       style="text-decoration:none; color: black">{{ employee.thirdEmail }}</a></p>
-                                <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;">
-                                    <a href="https://www.mili-atlas.fr"
-                                       style="text-decoration: none; color:black; font-weight: 500">www.mili-atlas.fr</a>
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="w2" height="30" width="131" valign="middle">
-                                <img src="https://mili-atlas-formation.fr/wp-content/uploads/2023/02/Carte-Mili-Atlas-formation-signature.png"
-                                     alt="topographie Mili Atlas" width="100%"
-                                     style="display: block; min-width: 131px;">
-                                <a href="https://www.mili-atlas.fr">
-                                    <img src="https://mili-atlas.fr/wp-content/uploads/Mili-Atlas_Plan-de-travail-1.png"
-                                         alt="Mili Atlas" style="display: block;min-width: 131px " width="100%">
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <h4 class="p-5">Rendu HTML/CSS Mili-Formations : </h4>
-                <div class="w-100 p-5">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4 class="p-5">Rendu HTML/CSS Mili-Formations : </h4>
+                    <div class="w-100 p-5">
                 <pre class="border border-4 w-75 m-auto">
                     <code class="text-danger">
 &lt;style&gt;
@@ -300,8 +301,10 @@ hr{margin:1rem 0!important}a{color:#000;text-decoration:none}.mobile,.mobileplei
 &lt;/style&gt;
 &lt;table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #FFFFFF; padding: 10px"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px"&gt; &lt;img class="w1" src="{{ employee.picture }}" alt="Profil{{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px" style="display: block; border-radius: 50%;margin: 0 20px 0 20px"&gt; &lt;/td&gt;&lt;td width="258" rowspan="2" colspan="2"&gt; &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;"&gt;{{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0;"&gt; &lt;span style="margin-right: 2em"&gt;{{ employee.position }}&lt;/span&gt; &lt;a href="{{ employee.linkedinUrl }}"&gt; &lt;img style="width:20px; height:20px" src="https://mili-atlas-formation.fr/wp-content/uploads/2023/02/LinkedIn-2.png" alt="Profil linkedIn"&gt; &lt;/a&gt; &lt;/p&gt;&lt;hr width="220px" align="left" margin-right="20px"&gt; &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;{{ employee.phoneNumber }}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;"&gt; &lt;a href="mailto:{{ employee.thirdEmail }}" style="text-decoration:none; color: black"&gt;{{ employee.thirdEmail }}&lt;/a&gt;&lt;/p&gt;&lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;"&gt; &lt;a href="https://www.mili-atlas.fr" style="text-decoration: none; color:black; font-weight: 500"&gt;www.mili-atlas.fr&lt;/a&gt; &lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt; &lt;td class="w2" height="30" width="131" valign="middle"&gt; &lt;img src="https://mili-atlas-formation.fr/wp-content/uploads/2023/02/Carte-Mili-Atlas-formation-signature.png" alt="topographie Mili Atlas" width="100%" style="display: block; min-width: 131px;"&gt; &lt;a href="https://www.mili-atlas.fr"&gt; &lt;img src="https://mili-atlas.fr/wp-content/uploads/Mili-Atlas_Plan-de-travail-1.png" alt="Mili Atlas" style="display: block;min-width: 131px " width="100%"&gt; &lt;/a&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt; &lt;/table&gt;                    </code>
                 </pre>
+                    </div>
                 </div>
-            </div>
-        {% endif %}
+            {% endif %}
+        </div>
+
     </div>
 {% endblock %}
