@@ -78,7 +78,13 @@ class EmployeeController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function new(Request $request): Response
     {
-        return $this->handleEmployeeForm(new Employee(), $request, 'Ajouter', self::CREATE_VIEW, $this->validator);
+        return $this->handleEmployeeForm(
+            new Employee(),
+            $request,
+            'Ajouter',
+            self::CREATE_VIEW,
+            $this->validator
+        );
     }
 
     /**
