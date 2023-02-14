@@ -128,9 +128,9 @@ class EmployeeController extends AbstractController
             }
 
             if ($employee->getId() === null) {
-                $this->addFlash('success', 'Le salarié a bien été ajouté');
+                $this->addFlash('success', 'Le collaborateur a bien été ajouté');
             } else {
-                $this->addFlash('success', 'Le salarié a bien été modifié');
+                $this->addFlash('success', 'Le collaborateur a bien été modifié');
             }
 
             $this->employeeRepository->save($employee, true);
