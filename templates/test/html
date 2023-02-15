@@ -1,1 +1,52 @@
-&lt;table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #0A0A0A; padding: 15px 10px"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px"&gt; &lt;img class="w1" src="{{employee.picture}}" alt="Profil{{employee.firstName ~ ' ' ~ employee.lastName}}" width="120px" style="display: block; border-radius: 50%;margin: 20px 20px"&gt; &lt;/td&gt;&lt;td width="258" rowspan="2" colspan="2"&gt; &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: #F8F9FA"&gt;{{employee.firstName ~ ' ' ~ employee.lastName}}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: #F8F9FA"&gt; &lt;span style="margin-right: 2em; color: #F8F9FA"&gt;{{employee.position}}&lt;/span&gt;{% if employee.linkedinUrl is not null %}&lt;a href="{{employee.linkedinUrl}}"&gt; &lt;img style="width:25px; height:25px" src="http://adine-1806.fr/wp-content/uploads/2023/02/linkedin_1806-orange.png" alt="Profil linkedIn"&gt; &lt;/a&gt;{% endif %}&lt;/p&gt;&lt;hr width="220px" align="left" margin-right="20px" style=" color: #F8F9FA"&gt; &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; color: #F8F9FA"&gt;{{employee.phoneNumber}}&lt;/p&gt;&lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0; color: #F8F9FA "&gt; &lt;a href="mailto:{{employee.thirdEmail}}" style="text-decoration:none; color: #F8F9FA"&gt;{{employee.thirdEmail}}&lt;/a&gt;&lt;/p&gt;&lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0; color: #F8F9FA"&gt; &lt;a href="https://www.1806-patrimoine.fr" style="text-decoration: none; color: #F8F9FA; font-weight: 500"&gt;www.1806-patrimoine.fr&lt;/a&gt; &lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt; &lt;td class="w2" height="30" width="131" valign="middle"&gt; &lt;a href="https://www.1806-patrimoine.fr"&gt; &lt;img src="https://1806-patrimoine.fr/wp-content/uploads/2022/03/1806-Patrimoine_fond_fonce-300x172.png" alt="Mili Atlas" style="display: block;min-width: 131px; padding-right: 20px" width="100%"&gt; &lt;/a&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt; &lt;/table&gt;
+&lt;table width="100%" border="0" cellspacing="0" cellpadding="0"
+       style="background-color: #1C3866; padding: 10px"&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px"&gt;
+            &lt;img class="w1"
+                 src="{{ employee.picture }}"
+                 alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
+                 width="120px"
+                 style="display: block; border-radius: 50%;margin: 0 20px 0 20px"&gt;
+        &lt;/td&gt;
+        &lt;td width="258" rowspan="2" colspan="2"&gt;
+            &lt;p style="font-family: 'Montserrat Medium', sans-serif; color:white;font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;"&gt;
+                {{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;/p&gt;
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0; padding:0;"&gt;
+                &lt;span style="margin-right: 2em"&gt;{{ employee.position }}&lt;/span&gt;
+                {% if employee.linkedinUrl is not null %}
+                    &lt;a href="{{ employee.linkedinUrl }}"&gt;
+                        &lt;img style="width:20px; height:20px"
+                             src="https://mili-atlas.fr/wp-content/uploads/LinkedIn-1.png"
+                             alt="Profil linkedIn"&gt;
+                    &lt;/a&gt;
+                {% endif %}
+
+            &lt;/p&gt;
+
+            &lt;hr width="220px" align="left" margin-right="20px" style="color:white;"&gt;
+
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
+                {{ employee.phoneNumber }}&lt;/p&gt;
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;"&gt;
+                &lt;a href="mailto:{{ employee.secondEmail }}"
+                   style="text-decoration:none; color: white"&gt;{{ employee.secondEmail }}&lt;/a&gt;&lt;/p&gt;
+            &lt;p style="font-family: 'Montserrat Medium', sans-serif;  color:white; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0;"&gt;
+                &lt;a href="https://www.mili-atlas.fr"
+                   style="text-decoration: none; color:white; font-weight: 500"&gt;www.mili-invest.fr&lt;/a&gt;
+            &lt;/p&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td class="w2" height="30" width="131" valign="middle"&gt;
+            &lt;img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Carte-mili-Invest_signature.png"
+                 alt="topographie Mili Invest" width="100%"
+                 style="display: block; min-width: 131px;"&gt;
+            &lt;a href="https://www.mili-invest.fr"&gt;
+                &lt;img src="https://www.mili-invest.fr/wp-content/uploads/2023/02/Mili-Invest_logo_blanc.png"
+                     alt="Mili Atlas" style="display: block;min-width: 131px;" width="100%"&gt;
+            &lt;/a&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
