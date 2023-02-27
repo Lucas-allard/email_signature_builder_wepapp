@@ -59,32 +59,8 @@
 </div>
 <div class="row">
     <div class="col">
-        {{ form_row(employeeForm.facebookUrl) }}
-        {% for error in form_errors(employeeForm.facebookUrl) %}
-            {{ error }}
-        {% endfor %}
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        {{ form_row(employeeForm.twitterUrl) }}
-        {% for error in form_errors(employeeForm.twitterUrl) %}
-            {{ error }}
-        {% endfor %}
-    </div>
-</div>
-<div class="row">
-    <div class="col">
         {{ form_row(employeeForm.linkedinUrl) }}
         {% for error in form_errors(employeeForm.linkedinUrl) %}
-            {{ error }}
-        {% endfor %}
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        {{ form_row(employeeForm.instagramUrl) }}
-        {% for error in form_errors(employeeForm.instagramUrl) %}
             {{ error }}
         {% endfor %}
     </div>

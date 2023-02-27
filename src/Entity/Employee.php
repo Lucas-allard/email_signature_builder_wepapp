@@ -68,51 +68,24 @@ class Employee implements EntityInterface
      * @var string|null
      */
     #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Regex(
-        pattern: '/^[a-zA-Z0-9._%+-]+@mili-atlas\.fr$/',
-        message: 'L\'adresse email doit être au format mail@mili-atlas.fr'
-    )]
     private ?string $firstEmail = null;
 
     /**
      * @var string|null
      */
     #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Regex(
-        pattern: '/^[a-zA-Z0-9._%+-]+@mili-invest\.fr$/',
-        message: 'L\'adresse email doit être au format mail@mili-invest.fr'
-    )]
     private ?string $secondEmail = null;
 
     /**
      * @var string|null
      */
     #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Regex(
-        pattern: '/^[a-zA-Z0-9._%+-]+@1806-patrimoine\.fr$/',
-        message: 'L\'adresse email doit être au format mail@1806-patrimoine.fr'
-    )]
     private ?string $thirdEmail = null;
 
     /**
      * @var string|null
      */
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Regex(
-        pattern: '/^https:\/\/www\.facebook\.com\/.*$/',
-        message: 'L\'URL doit commencer par https://www.facebook.com/'
-    )]
-    private ?string $facebookUrl = null;
 
-    /**
-     * @var string|null
-     */
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Regex(
-        pattern: '/^https:\/\/www\.instagram\.com\/.*$/',
-        message: 'L\'URL doit commencer par https://www.instagram.com/'
-    )]
-    private ?string $instagramUrl = null;
 
     /**
      * @var string|null
@@ -123,16 +96,6 @@ class Employee implements EntityInterface
         message: 'L\'URL doit commencer par https://www.linkedin.com/'
     )]
     private ?string $linkedinUrl = null;
-
-    /**
-     * @var string|null
-     */
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Regex(
-        pattern: '/^https:\/\/www\.twitter\.com\/.*$/',
-        message: 'L\'URL doit commencer par https://www.twitter.com/'
-    )]
-    private ?string $twitterUrl = null;
 
     /**
      * @return int|null
@@ -278,44 +241,6 @@ class Employee implements EntityInterface
     /**
      * @return string|null
      */
-    public function getFacebookUrl(): ?string
-    {
-        return $this->facebookUrl;
-    }
-
-    /**
-     * @param string $facebookUrl
-     * @return $this
-     */
-    public function setFacebookUrl(string $facebookUrl): self
-    {
-        $this->facebookUrl = $facebookUrl;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getInstagramUrl(): ?string
-    {
-        return $this->instagramUrl;
-    }
-
-    /**
-     * @param string|null $instagramUrl
-     * @return $this
-     */
-    public function setInstagramUrl(?string $instagramUrl): self
-    {
-        $this->instagramUrl = $instagramUrl;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getLinkedinUrl(): ?string
     {
         return $this->linkedinUrl;
@@ -328,25 +253,6 @@ class Employee implements EntityInterface
     public function setLinkedinUrl(?string $linkedinUrl): self
     {
         $this->linkedinUrl = $linkedinUrl;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getTwitterUrl(): ?string
-    {
-        return $this->twitterUrl;
-    }
-
-    /**
-     * @param string|null $twitterUrl
-     * @return $this
-     */
-    public function setTwitterUrl(?string $twitterUrl): self
-    {
-        $this->twitterUrl = $twitterUrl;
 
         return $this;
     }

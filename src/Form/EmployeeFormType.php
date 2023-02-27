@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -92,32 +94,11 @@ class EmployeeFormType extends AbstractType
                     'placeholder' => 'Numéro de téléphone',
                 ],
             ])
-            ->add('facebookUrl', TextType::class, [
-                'required' => false,
-                'label' => 'Lien Facebook',
-                'attr' => [
-                    'placeholder' => 'Lien Facebook',
-                ],
-            ])
-            ->add('twitterUrl', TextType::class, [
-                'required' => false,
-                'label' => 'Lien Twitter',
-                'attr' => [
-                    'placeholder' => 'Lien Twitter',
-                ],
-            ])
             ->add('linkedinUrl', TextType::class, [
                 'required' => false,
                 'label' => 'Lien Linkedin',
                 'attr' => [
                     'placeholder' => 'Lien Linkedin',
-                ],
-            ])
-            ->add('instagramUrl', TextType::class, [
-                'required' => false,
-                'label' => 'Lien Instagram',
-                'attr' => [
-                    'placeholder' => 'Lien Instagram',
                 ],
             ])
             ->add('submit', SubmitType::class, [
@@ -126,6 +107,44 @@ class EmployeeFormType extends AbstractType
                     'class' => 'btn btn-primary',
                 ],
             ]);
+
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+
+            // if the collaborator is new, we set the default value for the email fields
+
+            $employee = $event->getData();
+            $form = $event->getForm();
+
+            if ($employee->getId() === null) {
+                // if the collaborator is new, we set the default value for the email fields
+                $form->add('firstEmail', TextType::class, [
+                    'label' => 'Email Mili-Atlas',
+                    'required' => false,
+                    'data'=> '@mili-atlas.fr',
+                    'attr' => [
+                        'placeholder' => 'Email Mili-Atlas',
+                    ],
+                ])
+                    ->add('secondEmail', TextType::class, [
+                        'label' => 'Email Mili-Invest',
+                        'required' => false,
+                        'data'=> '@mili-invest.fr',
+                        'attr' => [
+                            'placeholder' => 'Email Mili-Invest',
+                        ],
+                    ])
+                    ->add('thirdEmail', TextType::class, [
+                        'label' => 'Email 1806-Patrimoine',
+                        'data'=> '@1806-patrimoine.fr',
+                        'required' => false,
+                        'attr' => [
+                            'placeholder' => 'Email 1806-Patrimoine',
+                        ],
+                    ]);
+            }
+
+        });
     }
 
     /**

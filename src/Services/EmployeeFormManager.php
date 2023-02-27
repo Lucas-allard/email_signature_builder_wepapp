@@ -40,6 +40,7 @@ class EmployeeFormManager
     public function handleForm(FormInterface $form, Request $request): bool
     {
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             return true;
         }

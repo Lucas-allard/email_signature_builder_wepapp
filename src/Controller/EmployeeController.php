@@ -96,7 +96,13 @@ class EmployeeController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function edit(Employee $employee, Request $request): Response
     {
-        return $this->handleEmployeeForm($employee, $request, 'Modifier', self::EDIT_VIEW, $this->validator);
+        return $this->handleEmployeeForm(
+            $employee,
+            $request,
+            'Enregistrer',
+            self::EDIT_VIEW,
+            $this->validator
+        );
     }
 
     /**
@@ -120,9 +126,10 @@ class EmployeeController extends AbstractController
 
         if ($this->employeeFormManager->handleForm($form, $request)) {
             $errors = $validator->validate($employee);
+
             if (count($errors) > 0) {
                 return $this->render($view, [
-                    'form' => $form->createView(),
+                    'employeeForm' => $form->createView(),
                     'errors' => $errors,
                 ]);
             }
