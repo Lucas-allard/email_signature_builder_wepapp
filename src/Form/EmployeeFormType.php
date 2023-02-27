@@ -122,6 +122,7 @@ class EmployeeFormType extends AbstractType
                     'label' => 'Email Mili-Atlas',
                     'required' => false,
                     'data'=> '@mili-atlas.fr',
+                    'empty_data' => '',
                     'attr' => [
                         'placeholder' => 'Email Mili-Atlas',
                     ],
@@ -130,6 +131,7 @@ class EmployeeFormType extends AbstractType
                         'label' => 'Email Mili-Invest',
                         'required' => false,
                         'data'=> '@mili-invest.fr',
+                        'empty_data' => '',
                         'attr' => [
                             'placeholder' => 'Email Mili-Invest',
                         ],
@@ -137,6 +139,7 @@ class EmployeeFormType extends AbstractType
                     ->add('thirdEmail', TextType::class, [
                         'label' => 'Email 1806-Patrimoine',
                         'data'=> '@1806-patrimoine.fr',
+                        'empty_data' => '',
                         'required' => false,
                         'attr' => [
                             'placeholder' => 'Email 1806-Patrimoine',
