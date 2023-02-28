@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Accueil{% endblock %}
 
 {% block stylesheets %}
@@ -95,7 +96,18 @@
     </style>
 {% endblock %}
 
+
+
 {% block body %}
+    {% set phoneNumber = employee.phoneNumber %} {# Remplacez cela par votre propre numéro de téléphone portable français #}
+
+    {% set formattedPhoneNumber = '' %}
+    {% for i in 0..(phoneNumber|length-1) %}
+        {% set formattedPhoneNumber = formattedPhoneNumber ~ phoneNumber|slice(i,1) %}
+        {% if (i+1) % 2 == 0 and i < phoneNumber|length-1 %}
+            {% set formattedPhoneNumber = formattedPhoneNumber ~ ' ' %}
+        {% endif %}
+    {% endfor %}
     <div class="container bg-light min-vh-100">
         <div class="d-flex justify-content-between align-items-center  p-3">
             <h3 class="table-title">Signature - {{ employee.firstName }} {{ employee.lastName }}</h3>
@@ -145,7 +157,7 @@
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: inherit; ">
                                         <a href="tel:{{ employee.phoneNumber }}"
                                            style="text-decoration:none;  color: inherit; "
-                                        >{{ employee.phoneNumber }}</a></p>
+                                        >{{ formattedPhoneNumber }}</a></p>
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; ">
                                         <a href="mailto:{{ employee.firstEmail }}"
                                            style="text-decoration:none;  color: inherit; ">{{ employee.firstEmail }}</a>
@@ -328,7 +340,7 @@
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
                 &lt;a href="tel:{{ employee.phoneNumber }}"
                    style="text-decoration:none;  color: inherit; "
-                &gt;{{ employee.phoneNumber }}&lt;/a&gt;&lt;/p&gt;
+                &gt;{{ formattedPhoneNumber }}&lt;/a&gt;&lt;/p&gt;
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
                 &lt;a href="mailto:{{ employee.firstEmail }}"
                    style="text-decoration:none;  color: inherit; "&gt;{{ employee.firstEmail }}&lt;/a&gt;
@@ -394,23 +406,28 @@
                                 </td>
                                 <td width="258" rowspan="2" colspan="2" style="padding-left: 10px">
                                     <p style="font-family: 'Montserrat Medium', sans-serif; color:white;font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
-                                        {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
-                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0; padding:0;">
-                                        <span style="margin-right: 2em">{{ employee.position }}</span>
+                                        <span style="margin-right:4em">
+                                            {{ employee.firstName ~ ' ' ~ employee.lastName }}
+                                        </span>
                                         {% if employee.linkedinUrl is not null %}
                                             <a href="{{ employee.linkedinUrl }}">
                                                 <img style="width:20px; height:20px;background-color:#1C3866"
-                                                     src="https://mili-atlas.fr/wp-content/uploads/test-invest-1.png"
+                                                     src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
                                                      alt="Profil linkedIn">
                                             </a>
                                         {% endif %}
-
+                                    </p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0; padding:0;">
+                                        <span style="margin-right: 2em">{{ employee.position }}</span>
                                     </p>
 
-                                    <hr width="220px" align="left" margin-right="20px" style="color:white;">
+                                    <hr width="150" align="left" margin-right="40px" style="color:white;">
 
                                     <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
-                                        {{ employee.phoneNumber }}</p>
+                                        <a href="tel: {{ employee.phoneNumber }}"
+                                           style="text-decoration:none;  color: inherit; "
+                                        >{{ formattedPhoneNumber }}</a>
+                                    </p>
                                     <p style="font-family: 'Montserrat Regular', sans-serif;  color:white;font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
                                         <a href="mailto:{{ employee.secondEmail }}"
                                            style="text-decoration:none; color: white">{{ employee.secondEmail }}</a></p>
@@ -427,23 +444,23 @@
                                              alt="topographie Mili Invest" width="100px"
                                              style="display: block;">
                                     </a>
-                                    <p style="text-align: center; margin-bottom: 10px">
+                                    <p style="text-align: center; margin: 0">
                                         <a href="https://www.linkedin.com/company/mili-invest/"
                                            style="text-decoration: none;">
                                             <img style="width:13px; height:13px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/mili-invest_in.png"
+                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
                                                  alt="Lien linkedIn">
                                         </a>
                                         <a href="https://www.facebook.com/Mili-Invest-105867161974244"
                                            style="text-decoration: none;">
                                             <img style="width:13px; height:13px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/mili-Invest_fbpng.png"
+                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
                                                  alt="Lien facebook">
                                         </a>
                                         <a href="https://www.instagram.com/miliinvest/"
                                            style="text-decoration: none;">
-                                            <img style="width:13px; height:13px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/mili-invest_insta.png"
+                                            <img style="width:13px; height:13px; margin-top:1px"
+                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
                                                  alt="Lien instagram">
                                         </a>
                                     </p>
@@ -650,36 +667,38 @@ alt="Profil linkedIn"&gt;
                                style="background-color: #0A0A0A; padding: 15px 10px">
                             <tbody>
                             <tr>
-                                <td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px">
+                                <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
                                     <img class="w1"
                                          src="{{ employee.picture }}"
                                          alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
                                          width="120px"
-                                         style="display: block; border-radius: 50%;">
+                                         style="display: block; border-radius: 50%;margin: 20px 20px">
                                 </td>
-                                <td width="238" rowspan="2" colspan="2" style="padding-left: 10px">
-                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: #F8F9FA">
-                                        {{ employee.firstName ~ ' ' ~ employee.lastName }}</p>
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: #F8F9FA">
-                                        <span style="margin-right: 2em; color: #F8F9FA">{{ employee.position }}</span>
+                                <td width="258" rowspan="2" colspan="2">
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:10px; font-weight: bold; margin:0; padding:0; color: #F8F9FA">
+                                        <span style="margin-right: 4em">{{ employee.firstName ~ ' ' ~ employee.lastName }}</span>
                                         {% if employee.linkedinUrl is not null %}
                                             <a href="{{ employee.linkedinUrl }}">
-                                                <img style="width:25px; height:25px"
-                                                     src="http://adine-1806.fr/wp-content/uploads/2023/02/linkedin_1806-orange.png"
-                                                     alt="Profil linkedIn">
+                                            <img style="width:25px; height:25px" valign="middle"
+                                                 src="http://adine-1806.fr/wp-content/uploads/2023/02/linkedin_1806-orange.png"
+                                                 alt="Profil linkedIn">
                                             </a>
                                         {% endif %}
                                     </p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:10px; margin:0; padding:0; color: #F8F9FA">
+                                        <span style="margin-right: 2em; color: #F8F9FA">{{ employee.position }}</span>
 
-                                    <hr width="220px" align="left" margin-right="20px" style="color: #F8F9FA">
+                                    </p>
+
+                                    <hr width="150px" align="left" margin-right="40px" style=" color: #F8F9FA">
 
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: #F8F9FA">
-                                        {{ employee.phoneNumber }}</p>
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0; color: #F8F9FA ">
+                                        <a href="tel:{{employee.phoneNumber}}" style="text-decoration:none;  color: #F8F9FA">{{ formattedPhoneNumber }}</a></p>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; color: #F8F9FA ">
                                         <a href="mailto:{{ employee.thirdEmail }}"
                                            style="text-decoration:none;  color: #F8F9FA">{{ employee.thirdEmail }}</a>
                                     </p>
-                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0; color: #F8F9FA">
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: #F8F9FA">
                                         <a href="https://www.1806-patrimoine.fr"
                                            style="text-decoration: none;  color: #F8F9FA; font-weight: 500">www.1806-patrimoine.fr</a>
                                     </p>
@@ -689,10 +708,10 @@ alt="Profil linkedIn"&gt;
                                 <td class="w2" height="30" width="131" valign="middle">
                                     <a href="https://www.1806-patrimoine.fr">
                                         <img src="https://1806-patrimoine.fr/wp-content/uploads/2022/03/1806-Patrimoine_fond_fonce-300x172.png"
-                                             alt="1806 Patrimoine"
+                                             alt="Mili Atlas"
                                              style="display: block;min-width: 131px; padding-right: 20px" width="100%">
                                     </a>
-                                    <p style="text-align: center;padding-right: 20px; padding-top: 20px">
+                                    <p style="text-align: center; padding-top: 20px">
                                         <a href="https://www.linkedin.com/company/1806-patrimoine/"
                                            style="text-decoration: none;">
                                             <img style="width:15px; height:15px"
@@ -822,15 +841,15 @@ alt="Profil linkedIn"&gt;
         &lt;/td&gt;
         &lt;td width="258" rowspan="2" colspan="2"&gt;
             &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:10px; font-weight: bold; margin:0; padding:0; color: #F8F9FA"&gt;
-                &lt;span style="margin-right: 4em"&gt;{{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;span&gt;
-                                 {% if employee.linkedinUrl is not null %}
-                                     &lt;a href="{{ employee.linkedinUrl }}"&gt;
-                                     &lt;img style="width:25px; height:25px" valign="middle"
-                                     src="http://adine-1806.fr/wp-content/uploads/2023/02/linkedin_1806-orange.png"
-                                     alt="Profil linkedIn"&gt;
-                                     &lt;/a&gt;
-                                 {% endif %}
-                                &lt;/p&gt;
+                &lt;span style="margin-right: 4em"&gt;{{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;/span&gt;
+                {% if employee.linkedinUrl is not null %}
+                    &lt;a href="{{ employee.linkedinUrl }}"&gt;
+                    &lt;img style="width:25px; height:25px" valign="middle"
+                    src="http://adine-1806.fr/wp-content/uploads/2023/02/linkedin_1806-orange.png"
+                    alt="Profil linkedIn"&gt;
+                    &lt;/a&gt;
+                {% endif %}
+            &lt;/p&gt;
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:10px; margin:0; padding:0; color: #F8F9FA"&gt;
                 &lt;span style="margin-right: 2em; color: #F8F9FA"&gt;{{ employee.position }}&lt;/span&gt;
 
@@ -839,7 +858,7 @@ alt="Profil linkedIn"&gt;
             &lt;hr width="150px" align="left" margin-right="40px" style=" color: #F8F9FA"&gt;
 
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: #F8F9FA"&gt;
-                {{ employee.phoneNumber }}&lt;/p&gt;
+                &lt;a href="tel:{{employee.phoneNumber}}" style="text-decoration: none; color: #F8F9FA;"&gt;{{ formattedPhoneNumber }}&lt;/a&gt;&lt;/p&gt;
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; color: #F8F9FA "&gt;
                 &lt;a href="mailto:{{ employee.thirdEmail }}"
                    style="text-decoration:none;  color: #F8F9FA"&gt;{{ employee.thirdEmail }}&lt;/a&gt;
@@ -881,7 +900,6 @@ alt="Profil linkedIn"&gt;
     &lt;/tr&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;
-
                             </code>
                         </pre>
                     </div>

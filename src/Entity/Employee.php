@@ -54,8 +54,8 @@ class Employee implements EntityInterface
      */
     #[ORM\Column(length: 14, nullable: true)]
     #[Assert\Length(
-        min: 14,
-        max: 14,
+        min: 10,
+        max: 10,
         exactMessage: 'Votre numéro de téléphone doit contenir {{ limit }} caractères'
     )]
     #[Assert\Regex(

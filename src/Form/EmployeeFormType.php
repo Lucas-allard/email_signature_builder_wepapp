@@ -90,7 +90,7 @@ class EmployeeFormType extends AbstractType
                         'min' => 10,
                         'minMessage' => 'Votre numéro de téléphone doit comporter au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
-                        'max' => 14,
+                        'max' => 10,
                     ]),
                 ],
                 'attr' => [
