@@ -38,7 +38,9 @@
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn-light" type="submit">Se connecter</button>
                             <a href="{{ path('register') }}" class="btn btn--radius-2 btn-light">Inscription</a>
-
+                            <a href="{{ path('app_forgot_password') }}" class="text-decoration-none text-light px-4">
+                                <small>Mot de passe oublié ?</small>
+                            </a>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     </form>

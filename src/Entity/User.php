@@ -48,6 +48,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    #[ORM\Column(type: 'string', length: 100)]
+    private $resetToken;
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
@@ -87,7 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -159,4 +161,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+
+    /**
+     * @return mixed
+     */
+    public function getResetToken()
+    {
+        return $this->resetToken;
+    }
+
+    /**
+     * @param mixed $resetToken
+     * @return User
+     */
+    public function setResetToken($resetToken)
+    {
+        $this->resetToken = $resetToken;
+        return $this;
+    }
+
 }
