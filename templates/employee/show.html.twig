@@ -127,6 +127,7 @@
                         <table width="523px" border="0" cellspacing="0" cellpadding="0">
                             <tbody>
                             <tr>
+                                {# PROFIL PICTURE #}
                                 <td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px">
                                     <img class="w1"
                                          src="{{ employee.picture }}"
@@ -134,11 +135,14 @@
                                          width="120px"
                                          style="display: block; border-radius: 50%;">
                                 </td>
+                                {# INFO #}
                                 <td width="258" rowspan="2" colspan="2" style="padding-left: 10px;">
+                                    {# NAME & LASTNAME #}
                                     <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;">
                                         <span style="margin-right: 4em">
                                             {{ employee.firstName ~ ' ' ~ employee.lastName }}
                                         </span>
+                                        {# LINKEDIN PROFILE #}
                                         {% if employee.linkedinUrl is not null %}
                                             <a href="{{ employee.linkedinUrl }}">
                                                 <img style="width:20px; height:20px"
@@ -148,20 +152,25 @@
                                             </a>
                                         {% endif %}
                                     </p>
+                                    {# POSITION #}
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; ">
                                         <span style="margin-right: 2em ; color: inherit; ">{{ employee.position }}</span>
                                     </p>
 
                                     <hr width="150" align="left" margin-right="40px">
 
+                                    {# PHONE NUMBER #}
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: inherit; ">
                                         <a href="tel:{{ employee.phoneNumber }}"
                                            style="text-decoration:none;  color: inherit; "
-                                        >{{ formattedPhoneNumber }}</a></p>
+                                        >{{ formattedPhoneNumber }}</a>
+                                    </p>
+                                    {# EMAIL #}
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; ">
                                         <a href="mailto:{{ employee.firstEmail }}"
                                            style="text-decoration:none;  color: inherit; ">{{ employee.firstEmail }}</a>
                                     </p>
+                                    {# WEBSITE #}
                                     <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0; color: inherit; ">
                                         <a href="https://www.mili-atlas.fr"
                                            style="text-decoration: none; color: inherit; ; font-weight: 500">www.mili-atlas.fr</a>
@@ -170,11 +179,14 @@
                             </tr>
                             <tr>
                                 <td class="w2" height="30" width="100" valign="bottom">
+                                    {# LOGO #}
                                     <a href="https://www.mili-atlas.fr">
                                         <img class="light-img"
                                              src="https://mili-atlas.fr/wp-content/uploads/Atlas-V5.png"
                                              alt="Mili Atlas" style="display: block;" width="100px">
                                     </a>
+
+                                    {# SOCIAL NETWORKS #}
                                     <p style="text-align: center; margin:0">
                                         <a href="https://www.linkedin.com/company/mili-atlas/"
                                            style="text-decoration: none;">
@@ -200,12 +212,18 @@
                             <tr>
                                 <td></td>
                                 <td colspan="4">
-                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; ">
-                                        <small style="font-size: 0.4rem">
-                                            MILI-ATLAS - 2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche - SIREN :
-                                            892 132 143 - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI 3502 2021
-                                            000 000 007 CCI d’Ille-et-Vilaine
-                                        </small>
+                                    {# ADDRESS #}
+                                    <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit!important; ">
+                                        <a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
+                                           href="https://www.mili-atlas.fr">
+                                            MILI-ATLAS - <span
+                                                    style="text-decoration: none!important;color: #000000!important;">2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche</span>
+                                            - SIREN :
+                                            <span style="text-decoration: none!important;color: #000000!important;">892 132 143</span>
+                                            - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI
+                                            <span style="text-decoration: none!important;color: #000000!important;">3502 2021
+                                            000 000</span> 007 CCI d’Ille-et-Vilaine
+                                        </a>
                                     </p>
                                 </td>
 
@@ -308,6 +326,7 @@ a[x-apple-data-detectors] {
 &lt;table width="523px" border="0" cellspacing="0" cellpadding="0"&gt;
     &lt;tbody&gt;
     &lt;tr&gt;
+        {# PROFIL PICTURE #}
         &lt;td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px"&gt;
             &lt;img class="w1"
                  src="{{ employee.picture }}"
@@ -315,34 +334,42 @@ a[x-apple-data-detectors] {
                  width="120px"
                  style="display: block; border-radius: 50%;"&gt;
         &lt;/td&gt;
+        {# INFO #}
         &lt;td width="258" rowspan="2" colspan="2" style="padding-left: 10px;"&gt;
+            {# NAME & LASTNAME #}
             &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;"&gt;
                                         &lt;span style="margin-right: 4em"&gt;
                                             {{ employee.firstName ~ ' ' ~ employee.lastName }}
                                         &lt;/span&gt;
-                {% if employee.linkedinUrl is not null %}
-                    &lt;a href="{{ employee.linkedinUrl }}"&gt;
-                    &lt;img style="width:20px; height:20px"
-                    src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                    alt="Profil linkedIn"
-                    &gt;
-                    &lt;/a&gt;
-                {% endif %}
+                {# LINKEDIN PROFILE #}
+                                {% if employee.linkedinUrl is not null %}
+                                    &lt;a href="{{ employee.linkedinUrl }}"&gt;
+                                    &lt;img style="width:20px; height:20px"
+                                    src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                    alt="Profil linkedIn"
+                                    &gt;
+                                    &lt;/a&gt;
+                                {% endif %}
             &lt;/p&gt;
+            {# POSITION #}
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; "&gt;
                 &lt;span style="margin-right: 2em ; color: inherit; "&gt;{{ employee.position }}&lt;/span&gt;
             &lt;/p&gt;
 
             &lt;hr width="150" align="left" margin-right="40px"&gt;
 
+            {# PHONE NUMBER #}
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
                 &lt;a href="tel:{{ employee.phoneNumber }}"
                    style="text-decoration:none;  color: inherit; "
-                &gt;{{ formattedPhoneNumber }}&lt;/a&gt;&lt;/p&gt;
+                &gt;{{ formattedPhoneNumber }}&lt;/a&gt;
+            &lt;/p&gt;
+            {# EMAIL #}
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
                 &lt;a href="mailto:{{ employee.firstEmail }}"
                    style="text-decoration:none;  color: inherit; "&gt;{{ employee.firstEmail }}&lt;/a&gt;
             &lt;/p&gt;
+            {# WEBSITE #}
             &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:11px; font-weight: bold; margin:0; padding:0; color: inherit; "&gt;
                 &lt;a href="https://www.mili-atlas.fr"
                    style="text-decoration: none; color: inherit; ; font-weight: 500"&gt;www.mili-atlas.fr&lt;/a&gt;
@@ -351,11 +378,14 @@ a[x-apple-data-detectors] {
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td class="w2" height="30" width="100" valign="bottom"&gt;
+            {# LOGO #}
             &lt;a href="https://www.mili-atlas.fr"&gt;
                 &lt;img class="light-img"
                      src="https://mili-atlas.fr/wp-content/uploads/Atlas-V5.png"
                      alt="Mili Atlas" style="display: block;" width="100px"&gt;
             &lt;/a&gt;
+
+            {# SOCIAL NETWORKS #}
             &lt;p style="text-align: center; margin:0"&gt;
                 &lt;a href="https://www.linkedin.com/company/mili-atlas/"
                    style="text-decoration: none;"&gt;
@@ -381,12 +411,15 @@ a[x-apple-data-detectors] {
     &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;
         &lt;td colspan="4"&gt;
-            &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; "&gt;
-                &lt;small style="font-size: 0.4rem"&gt;
-                    MILI-ATLAS - 2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche - SIREN :
-                    892 132 143 - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI 3502 2021
-                    000 000 007 CCI d’Ille-et-Vilaine
-                &lt;/small&gt;
+            {# ADDRESS #}
+            &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit!important; "&gt;
+                &lt;a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
+                   href="http://www.mili-atlas.fr"&gt;
+                    MILI-ATLAS - &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche&lt;/span&gt; - SIREN :
+                    &lt;span  style="text-decoration: none!important;color: #000000!important;"&gt;892 132 143&lt;/span&gt; - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI
+                    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;3502 2021
+                                            000 000&lt;/span&gt; 007 CCI d’Ille-et-Vilaine
+                &lt;/a&gt;
             &lt;/p&gt;
         &lt;/td&gt;
 
@@ -479,11 +512,16 @@ a[x-apple-data-detectors] {
                                 <td></td>
                                 <td colspan="4">
                                     <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; ">
-                                        <small style="font-size: 0.4rem">
-                                            MILI-ATLAS - 2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche - SIREN :
-                                            892 132 143 - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI 3502 2021
-                                            000 000 007 CCI d’Ille-et-Vilaine
-                                        </small>
+                                        <a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
+                                           href="https://www.mili-atlas.fr">
+                                            MILI-ATLAS - <span
+                                                    style="text-decoration: none!important;color: #000000!important;">2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche</span>
+                                            - SIREN :
+                                            <span style="text-decoration: none!important;color: #000000!important;">892 132 143</span>
+                                            - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI
+                                            <span style="text-decoration: none!important;color: #000000!important;">3502 2021
+                                            000 000</span> 007 CCI d’Ille-et-Vilaine
+                                        </a>
                                     </p>
                                 </td>
 
@@ -660,11 +698,13 @@ a[x-apple-data-detectors] {
         &lt;td&gt;&lt;/td&gt;
         &lt;td colspan="4"&gt;
             &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; "&gt;
-                &lt;small style="font-size: 0.4rem"&gt;
-                    MILI-ATLAS - 2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche - SIREN :
-                    892 132 143 - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI 3502 2021
-                    000 000 007 CCI d’Ille-et-Vilaine
-                &lt;/small&gt;
+               &lt;a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
+                   href="http://www.mili-atlas.fr"&gt;
+                    MILI-ATLAS - &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche&lt;/span&gt; - SIREN :
+                    &lt;span  style="text-decoration: none!important;color: #000000!important;"&gt;892 132 143&lt;/span&gt; - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI
+                    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;3502 2021
+                                            000 000&lt;/span&gt; 007 CCI d’Ille-et-Vilaine
+                &lt;/a&gt;
             &lt;/p&gt;
         &lt;/td&gt;
 
@@ -757,11 +797,16 @@ a[x-apple-data-detectors] {
                                 <td></td>
                                 <td colspan="4">
                                     <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0; color: inherit; ">
-                                        <small style="font-size: 0.4rem;color: #F8F9FA">
-                                            MILI-ATLAS - 2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche - SIREN :
-                                            892 132 143 - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI 3502 2021
-                                            000 000 007 CCI d’Ille-et-Vilaine
-                                        </small>
+                                        <a style="font-size: 0.4rem; text-decoration: none!important;color: #ffffff!important;"
+                                           href="https://www.mili-atlas.fr">
+                                            MILI-ATLAS - <span
+                                                    style="text-decoration: none!important;color: #ffffff!important;">2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche</span>
+                                            - SIREN :
+                                            <span style="text-decoration: none!important;color: #ffffff!important;">892 132 143</span>
+                                            - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI
+                                            <span style="text-decoration: none!important;color: #ffffff!important;">3502 2021
+                                            000 000</span> 007 CCI d’Ille-et-Vilaine
+                                        </a>
                                     </p>
                                 </td>
                             </tr>
@@ -936,11 +981,13 @@ a[x-apple-data-detectors] {
         &lt;td&gt;&lt;/td&gt;
         &lt;td colspan="4"&gt;
             &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0; color: inherit; "&gt;
-                &lt;small style="font-size: 0.4rem; color: #F8F9FA"&gt;
-                    MILI-ATLAS - 2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche - SIREN :
-                    892 132 143 - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI 3502 2021
-                    000 000 007 CCI d’Ille-et-Vilaine
-                &lt;/small&gt;
+                &lt;a style="font-size: 0.4rem; text-decoration: none!important;color: #ffffff!important;"
+                   href="http://www.mili-atlas.fr"&gt;
+                    MILI-ATLAS - &lt;span style="text-decoration: none!important;color: #ffffff!important;"&gt;2 rue Claude Chappe 35230 Noyal-Châtillon-sur-Seiche&lt;/span&gt; - SIREN :
+                    &lt;span  style="text-decoration: none!important;color: #ffffff!important;"&gt;892 132 143&lt;/span&gt; - RCS Rennes - ORIAS N°21 001 059 | CARTE PRO N°CPI
+                    &lt;span style="text-decoration: none!important;color: #ffffff!important;"&gt;3502 2021
+                                            000 000&lt;/span&gt; 007 CCI d’Ille-et-Vilaine
+                &lt;/a&gt;
             &lt;/p&gt;
         &lt;/td&gt;
     &lt;/tr&gt;
