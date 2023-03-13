@@ -84,6 +84,7 @@ class EmployeeFormType extends AbstractType
             ])
             ->add('phoneNumber', TextType::class, [
                 'label' => 'Numéro de téléphone',
+                'required' => false,
                 'constraints' => [
                     new Length([
                         'min' => 10,
@@ -123,7 +124,7 @@ class EmployeeFormType extends AbstractType
                 $form->add('firstEmail', TextType::class, [
                     'label' => 'Email Mili-Atlas',
                     'required' => false,
-                    'data'=> '@mili-atlas.fr',
+                    'data' => '@mili-atlas.fr',
                     'empty_data' => '',
                     'attr' => [
                         'placeholder' => 'Email Mili-Atlas',
@@ -132,7 +133,7 @@ class EmployeeFormType extends AbstractType
                     ->add('secondEmail', TextType::class, [
                         'label' => 'Email Mili-Invest',
                         'required' => false,
-                        'data'=> '@mili-invest.fr',
+                        'data' => '@mili-invest.fr',
                         'empty_data' => '',
                         'attr' => [
                             'placeholder' => 'Email Mili-Invest',
@@ -140,7 +141,7 @@ class EmployeeFormType extends AbstractType
                     ])
                     ->add('thirdEmail', TextType::class, [
                         'label' => 'Email 1806-Patrimoine',
-                        'data'=> '@1806-patrimoine.fr',
+                        'data' => '@1806-patrimoine.fr',
                         'empty_data' => '',
                         'required' => false,
                         'attr' => [

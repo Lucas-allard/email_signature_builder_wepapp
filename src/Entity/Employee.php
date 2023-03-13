@@ -53,15 +53,6 @@ class Employee implements EntityInterface
      * @var string|null
      */
     #[ORM\Column(length: 14, nullable: true)]
-    #[Assert\Length(
-        min: 10,
-        max: 10,
-        exactMessage: 'Votre numéro de téléphone doit contenir {{ limit }} caractères'
-    )]
-    #[Assert\Regex(
-        pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/',
-        message: 'Le numéro de téléphone doit être au format 0X XX XX XX XX'
-    )]
     private ?string $phoneNumber = null;
 
     /**
