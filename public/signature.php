@@ -51,10 +51,10 @@
         <td></td>
         <td colspan="4">
             <p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:7px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; ">
-                <small style="font-size: 0.4rem">
+                <a style="font-size: 0.4rem; text-decoration: none; color: #000000">
                     SAS IMMODEF au capital de 1000€ <br> Carte pro CPI 4401 2021 000 000 012
                     délivrée par la CCI de Nantes-Saint Nazaire - SIREN 892 146 911
-                </small>
+                </a>
             </p>
         </td>
 
@@ -199,10 +199,10 @@
         &lt;td&gt;&lt;/td&gt;
         &lt;td colspan="4"&gt;
             &lt;p style="font-family: 'Montserrat Medium', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; "&gt;
-                &lt;small style="font-size: 0.4rem"&gt;
+                &lt;a style="font-size: 0.4rem; text-decoration: none; color: #000000"&gt;
                     SAS IMMODEF au capital de 1000€ - Carte pro CPI 4401 2021 000 000 012
                     délivrée par la CCI de Nantes-Saint Nazaire - SIREN 892 146 911
-                &lt;/small&gt;
+                &lt;/a&gt;
             &lt;/p&gt;
         &lt;/td&gt;
 

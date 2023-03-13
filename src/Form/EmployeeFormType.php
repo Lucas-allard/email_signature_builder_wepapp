@@ -83,8 +83,7 @@ class EmployeeFormType extends AbstractType
                 'attr' => ['placeholder' => 'Sélectionnez un fichier'],
             ])
             ->add('phoneNumber', TextType::class, [
-                'required' => true,
-                'label' => 'Numéro de téléphone *',
+                'label' => 'Numéro de téléphone',
                 'constraints' => [
                     new Length([
                         'min' => 10,
