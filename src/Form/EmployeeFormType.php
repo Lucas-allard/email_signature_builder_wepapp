@@ -71,7 +71,7 @@ class EmployeeFormType extends AbstractType
                 ],
             ])
             ->add('position', TextType::class, [
-                'label' => 'Rôle dans l\'entreprise *',
+                'label' => 'Rôle dans l\'entreprise',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Rôle dans l\'entreprise',
