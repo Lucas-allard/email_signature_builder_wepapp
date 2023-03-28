@@ -11,7 +11,7 @@
                 <form class="form-outline" id="filterForm">
                     <input type="search" id="searchInput" class="form-control" placeholder="Rechercher un collaborateur"
                            aria-label="Search" />
-                    <input type="hidden" id="searchDataList" data-list="{{ employees|serialize(format = 'json')  }}">
+                    <input type="hidden" id="searchDataList" data-list="{{ allEmployees|serialize(format = 'json')  }}">
                 </form>
             </div>
 

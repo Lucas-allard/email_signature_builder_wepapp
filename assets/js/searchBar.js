@@ -15,6 +15,8 @@ window.onload = () => {
     }
     const fillTable = (table, data) => {
         for (const [index, result] of data.entries()) {
+            const editUrl = `/collaborateurs/${result.id}/editer`;
+            const signatureUrl = `/collaborateurs/signature/${result.id}`;
             const newRow = table.insertRow(table.rows.length);
 
             const indexCell = newRow.insertCell(0);
@@ -29,32 +31,29 @@ window.onload = () => {
             positionCell.innerHTML = result.position;
             actionCell.classList.add('text-center');
             actionCell.innerHTML = `<div class="btn-group-sm dropdown">
-                        <button type="button" class="btn btn-light btn-sm dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                            Action
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item"
-                                   href="{{ path('app_employee_edit', {employee: employee.id}) }}"><i
-                                            class="fa-solid fa-pen"></i> Editer</a>
-                                <input type="hidden" name="csrf_token" value={{ csrf_token("employee") }}>
-                            </li>
-                            <li>
-                                <button class="dropdown-item" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal" data-employee-id="{{ employee.id }}">
-                                    <i class="fa-solid fa-trash"></i> Supprimer
-                                </button>
-                            </li>
-                            <li>
-                                <a class="dropdown-item"
-                                   href="{{ path('app_employee_show', {employee: employee.id}) }}"><i
-                                            class="fa-solid fa-signature"></i> Signature
-                                </a>
-                            </li>
-                        </ul>
-                    </div>`;
+                    <button type="button" class="btn btn-light btn-sm dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item edit-link" href="#"><i class="fa-solid fa-pen"></i> Editer</a>
+                            <input type="hidden" name="csrf_token" value={{ csrf_token("employee") }}>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal" data-employee-id="{{ employee.id }}">
+                                <i class="fa-solid fa-trash"></i> Supprimer
+                            </button>
+                        </li>
+                        <li>
+                            <a class="dropdown-item signature-link" href=""><i class="fa-solid fa-signature"></i> Signature</a>
+                        </li>
+                    </ul>
+                </div>`;
+            newRow.querySelector('.edit-link').setAttribute('href', editUrl);
+            newRow.querySelector('.signature-link').setAttribute('href', signatureUrl);
         }
     }
 
