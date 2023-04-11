@@ -1,4 +1,7 @@
 window.onload = () => {
+    if (!document.getElementById('searchInput')) {
+        return;
+    }
     const jsonDataList = document.getElementById('searchDataList').dataset.list;
     const originalDataList = JSON.parse(jsonDataList);
     const searchDataList = JSON.parse(jsonDataList);

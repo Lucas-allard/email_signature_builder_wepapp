@@ -15,3 +15,4 @@ import "./styles/error.css";
 
 import "./js/modalDelete.js";
 import "./js/searchBar.js";
+import "./js/signatureCopy.js";
