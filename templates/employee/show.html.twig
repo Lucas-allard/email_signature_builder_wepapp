@@ -127,104 +127,115 @@
                         <table width="523px" border="0" cellspacing="0" cellpadding="0">
                             <tbody>
                             <tr>
-                                {# PROFIL PICTURE #}
                                 <td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px">
-                                    <img class="w1"
-                                         src="{{ employee.picture }}"
-                                         alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                                         width="120px"
-                                         style="display: block; border-radius: 50%;">
+                                    <img class="w1" src="{{ employee.picture }}"
+                                         alt="Photo de {{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px"
+                                         style="display: block; border-radius: 50%; max-width: 100%; height: auto;">
                                 </td>
-                                {# INFO #}
                                 <td width="258" rowspan="2" colspan="2" style="padding-left: 10px;">
-                                    {# NAME & LASTNAME #}
                                     <p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;">
-                                        <span style="width: 203px;display:inline-block">
-                                            {{ employee.firstName ~ ' ' ~ employee.lastName }}
-                                        </span>
-                                        {# LINKEDIN PROFILE #}
-                                        {% if employee.linkedinUrl is not null %}
-                                            <a href="{{ employee.linkedinUrl }}" style="width: 20px;margin-bottom: 1px">
-                                                <img style="width:20px; height:20px"
-                                                     src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                                                     alt="Profil linkedIn"
-                                                >
-                                            </a>
-                                        {% endif %}
+                    <span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;">
+                        <span style="max-width: 227px; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;">
+                            <span style="width: 180px;display:inline-block;vertical-align: bottom;padding-top: 5px">Lucas ALLARD</span>
+                            {% if employee.linkedinUrl is not null %}
+                                <a href="{{ employee.linkedinUrl }}" style="width: 20px;margin-bottom: 1px">
+                            <img style="width:20px; height:20px;vertical-align:bottom"
+                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                 alt="Profil linkedIn">
+                        </a>
+                            {% endif %}
+                        </span>
+                    </span>
                                     </p>
-                                    {# POSITION #}
-                                    <p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; width: max-content ">
-                                        {{ employee.position }}
+
+                                    <p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; width: max-content">
+                    <span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;">
+                        <span style="max-width: 227px; font-family:Montserrat, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;">{{ employee.position }}</span>
+                    </span>
                                     </p>
 
                                     <hr width="150" align="left" margin-right="40px">
 
-                                    {# PHONE NUMBER #}
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: inherit; ">
-                                        <a href="tel:{{ employee.phoneNumber }}"
-                                           style="text-decoration:none;  color: inherit; "
-                                        >{{ formattedPhoneNumber }}</a>
-                                    </p>
-                                    {# EMAIL #}
+                                    {% if employee.phoneNumber is not null %}
+                                        <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
+                                            <a href="tel:{{ employee.phoneNumber }}"
+                                               style="text-decoration:none;  color: inherit; "
+                                            >{{formattedPhoneNumber}}</a>
+                                        </p>
+                                    {% endif %}
+
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; ">
-                                        <a href="mailto:{{ employee.firstEmail }}"
-                                           style="text-decoration:none;  color: inherit; ">{{ employee.firstEmail }}</a>
+                    <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;">
+                        <a href="mailto:{{employee.firstEmail}}" style="text-decoration:none;  color: inherit; ">{{employee.firstEmail}}</a>
+                    </span>
                                     </p>
-                                    {# WEBSITE #}
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; ">
-                                        <a href="https://www.mili-atlas.fr"
-                                           style="text-decoration: none; color: inherit;">www.mili-atlas.fr</a>
+                    <span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;">
+                        <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;">
+                            <a href="https://www.mili-atlas.fr"
+                               style="text-decoration: none; color: inherit; ; font-weight: 400!important">
+                                www.mili-atlas.fr
+                            </a>
+                        </span>
+                    </span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w2" height="30" width="100" valign="bottom">
-                                    {# LOGO #}
+                                <td class="w2" width="78" valign="top">
                                     <a href="https://www.mili-atlas.fr">
                                         <img class="light-img"
-                                             src="https://mili-atlas.fr/wp-content/uploads/Atlas-V5.png"
-                                             alt="Mili Atlas" style="display: block; max-width:120px">
+                                             src="https://mili-atlas.fr/wp-content/uploads/fond-signature-atlas.png"
+                                             alt="Mili Atlas"
+                                             style="display: block;max-width:78px">
                                     </a>
-
-                                    {# SOCIAL NETWORKS #}
-                                    <p style="text-align: center; margin:0">
-                                        <a href="https://www.linkedin.com/company/mili-atlas/"
-                                           style="text-decoration: none;">
-                                            <img style="width:13px; height:13px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                                                 alt="Lien linkedIn">
-                                        </a>
-                                        <a href="https://www.facebook.com/mili.atlas.france/"
-                                           style="text-decoration: none;">
-                                            <img style="width:13px; height:13px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
-                                                 alt="Lien facebook">
-                                        </a>
-                                        <a href="https://www.instagram.com/miliatlas/?hl=fr"
-                                           style="text-decoration: none;">
-                                            <img style="width:13px; height:13px;  margin-top:1px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
-                                                 alt="Lien instagram">
-                                        </a>
+                                    <p style="text-align: center; margin: 0.5em 0 0">
+                    <span
+                            style="text-align: center; margin: 12px 0px 0px;">
+                        <span
+                                style="text-align: center; margin: 2px 0px 0px;">
+                            <a
+                                    href="https://www.linkedin.com/company/mili-atlas/" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                        alt="Lien linkedIn">
+                            </a>
+                            <a
+                                    href="https://www.facebook.com/mili.atlas.france/" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
+                                        alt="Lien facebook">
+                            </a>
+                            <a
+                                    href="https://www.instagram.com/miliatlas/?hl=fr" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px;  margin-top:1px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
+                                        alt="Lien instagram">
+                            </a>
+                        </span>
+                    </span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td colspan="4">
-                                    {# ADDRESS #}
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit!important; ">
-                                        <a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
-                                           href="https://www.mili-atlas.fr">
-                                            SAS MILI ATLAS | SIREN :
-                                            <span style="text-decoration: none!important;color: #000000!important;">892 132 143</span>
-                                            - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
-                                            <span style="text-decoration: none!important;color: #000000!important;">3502 2021
-                                            000 000</span> 007 CCI d’Ille-et-Vilaine
-                                        </a>
+                                <td colspan="4" style="padding-left: 10px">
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 0; color: inherit!important; ">
+                    <span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 6px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;">
+                        <a style="font-family: Montserrat Regular, sans-serif; font-size: 6px; line-height: 8px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;text-decoration:none!important">
+                            SAS MILI ATLAS | SIREN :
+                   892 132 143
+                    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
+                   3502 2021
+                                                            000 000
+                007 CCI d’Ille-et-Vilaine
+                </a>
+                    </span>
                                     </p>
                                 </td>
-
                             </tr>
                             </tbody>
                         </table>
@@ -239,198 +250,123 @@
                     <div class="w-100">
                         <pre class="border border-4 w-75  m-auto" style="height: 200px">
                             <code class="text-danger" id="atlas-signature">
+&lt;div dir="auto"&gt;
+    &lt;table width="523px" border="0" cellspacing="0" cellpadding="0"&gt;
+        &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px"&gt;
+                &lt;img class="w1" src="{{ employee.picture }}"
+                     alt="Photo de {{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px"
+                     style="display: block; border-radius: 50%; max-width: 100%; height: auto;"&gt;
+            &lt;/td&gt;
+            &lt;td width="258" rowspan="2" colspan="2" style="padding-left: 10px;"&gt;
+                &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;"&gt;
+                    &lt;span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;"&gt;
+                        &lt;span style="max-width: 227px; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;"&gt;
+                            &lt;span style="width: 180px;display:inline-block;vertical-align: bottom;padding-top: 5px"&gt;Lucas ALLARD&lt;/span&gt;
+                            {% if employee.linkedinUrl is not null %}
+                                &lt;a href="{{ employee.linkedinUrl }}" style="width: 20px;margin-bottom: 1px"&gt;
+                                &lt;img style="width:20px; height:20px;vertical-align:bottom"
+                                src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                alt="Profil linkedIn"&gt;
+                                &lt;/a&gt;
+                            {% endif %}
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
 
-&lt;style&gt;
-hr {
-    margin: 1rem 0 !important;
-}
+                &lt;p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; width: max-content"&gt;
+                    &lt;span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;"&gt;
+                        &lt;span style="max-width: 227px; font-family:Montserrat, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;"&gt;{{ employee.position }}&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
 
-.mobile {
-    display: none !important;
-}
+                &lt;hr width="150" align="left" margin-right="40px"&gt;
 
-.mobileplein {
-    display: none !important;
-}
+                {% if employee.phoneNumber is not null %}
+                    &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
+                    &lt;a href="tel:{{ employee.phoneNumber }}"
+                    style="text-decoration:none;  color: inherit; "
+                    &gt;{{formattedPhoneNumber}}&lt;/a&gt;
+                    &lt;/p&gt;
+                {% endif %}
 
-a[x-apple-data-detectors] {
-    color: inherit !important;
-    text-decoration: none !important;
-    font-size: inherit !important;
-    font-family: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-}
-@media only screen and (max-width: 600px) {
-    .bck {
-        background-position: 0 134px !important;
-    }
-
-    .tm {
-        width: 310px !important;
-    }
-
-    img.tm {
-        height: auto !important;
-    }
-
-    .tm2 {
-        width: 260px !important;
-    }
-
-    img.tm2 {
-        height: auto !important;
-    }
-
-    .desktop {
-        display: none !important;
-    }
-
-    .block {
-        display: block !important;
-    }
-
-    .mobile {
-        display: block !important;
-    }
-
-    .centre {
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    .tcentre {
-        text-align: center;
-    }
-
-    .w1 {
-        width: 80px !important;
-        height: auto !important
-    }
-
-    .w2 {
-        width: 150px !important
-    }
-
-    .w3 {
-        width: 80px !important;
-        height: auto !important
-    }
-
-    .w4 {
-        width: 10px !important
-    }
-
-    .ml {
-        width: 215px !important;
-        height: auto !important;
-    }
-}
-&lt;/style&gt;
-&lt;table width="523px" border="0" cellspacing="0" cellpadding="0"&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-        {# PROFIL PICTURE #}
-        &lt;td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px"&gt;
-            &lt;img class="w1"
-                 src="{{ employee.picture }}"
-                 alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                 width="120px"
-                 style="display: block; border-radius: 50%;"&gt;
-        &lt;/td&gt;
-        {# INFO #}
-        &lt;td width="258" rowspan="2" colspan="2" style="padding-left: 10px;"&gt;
-            {# NAME & LASTNAME #}
-            &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;"&gt;
-                                        &lt;span style="width: 180px;display:inline-block;vertical-align: sub;padding-top: 5px"&gt;
-                                            {{ employee.firstName ~ ' ' ~ employee.lastName }}
-                                        &lt;/span&gt;
-                {# LINKEDIN PROFILE #}
-                                {% if employee.linkedinUrl is not null %}
-                                    &lt;a href="{{ employee.linkedinUrl }}" style="width: 20px; margin-top:2px"&gt;
-                                    &lt;img style="width:20px; height:20px;vertical-align: top;"
-                                    src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                                    alt="Profil linkedIn"
-                                    &gt;
-                                    &lt;/a&gt;
-                                {% endif %}
-            &lt;/p&gt;
-            {# POSITION #}
-            &lt;p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; width: max-content "&gt;
-                {{ employee.position }}
-            &lt;/p&gt;
-
-            &lt;hr width="150" align="left" margin-right="40px"&gt;
-
-            {# PHONE NUMBER #}
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
-                &lt;a href="tel:{{ employee.phoneNumber }}"
-                   style="text-decoration:none;  color: inherit; "
-                &gt;{{ formattedPhoneNumber }}&lt;/a&gt;
-            &lt;/p&gt;
-            {# EMAIL #}
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
-                &lt;a href="mailto:{{ employee.firstEmail }}"
-                   style="text-decoration:none;  color: inherit; "&gt;{{ employee.firstEmail }}&lt;/a&gt;
-            &lt;/p&gt;
-            {# WEBSITE #}
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; "&gt;
-                &lt;a href="https://www.mili-atlas.fr"
-                   style="text-decoration: none; color: inherit; ; font-weight: 400!important"&gt;www.mili-atlas.fr&lt;/a&gt;
-            &lt;/p&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td class="w2" height="30" width="100" valign="bottom"&gt;
-            {# LOGO #}
-            &lt;a href="https://www.mili-atlas.fr"&gt;
-                &lt;img class="light-img"
-                     src="https://mili-atlas.fr/wp-content/uploads/Atlas-V5.png"
-                     alt="Mili Atlas" style="display: block;max-width:120px"&gt;
-            &lt;/a&gt;
-
-            {# SOCIAL NETWORKS #}
-            &lt;p style="text-align: center; margin:0"&gt;
-                &lt;a href="https://www.linkedin.com/company/mili-atlas/"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:13px; height:13px"
-                         src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                         alt="Lien linkedIn"&gt;
+                &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
+                    &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;"&gt;
+                        &lt;a href="mailto:{{employee.firstEmail}}" style="text-decoration:none;  color: inherit; "&gt;{{employee.firstEmail}}&lt;/a&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;"&gt;
+                        &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;"&gt;
+                            &lt;a href="https://www.mili-atlas.fr"
+                               style="text-decoration: none; color: inherit; ; font-weight: 400!important"&gt;
+                                www.mili-atlas.fr
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td class="w2" width="78" valign="top"&gt;
+                &lt;a href="https://www.mili-atlas.fr"&gt;
+                    &lt;img class="light-img"
+                         src="https://mili-atlas.fr/wp-content/uploads/fond-signature-atlas.png"
+                         alt="Mili Atlas"
+                         style="display: block;max-width:78px"&gt;
                 &lt;/a&gt;
-                &lt;a href="https://www.facebook.com/mili.atlas.france/"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:13px; height:13px"
-                         src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
-                         alt="Lien facebook"&gt;
+                &lt;p style="text-align: center; margin: 0.5em 0 0"&gt;
+                    &lt;span
+                            style="text-align: center; margin: 12px 0px 0px;"&gt;
+                        &lt;span
+                                style="text-align: center; margin: 2px 0px 0px;"&gt;
+                            &lt;a
+                                    href="https://www.linkedin.com/company/mili-atlas/" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                        alt="Lien linkedIn"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.facebook.com/mili.atlas.france/" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
+                                        alt="Lien facebook"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.instagram.com/miliatlas/?hl=fr" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px;  margin-top:1px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
+                                        alt="Lien instagram"&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td colspan="4" style="padding-left: 10px"&gt;
+                &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 0; color: inherit!important; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 6px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;"&gt;
+                        &lt;a style="font-family: Montserrat Regular, sans-serif; font-size: 6px; line-height: 8px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;text-decoration:none!important"&gt;
+                            SAS MILI ATLAS | SIREN :
+                   892 132 143
+                    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
+                   3502 2021
+                                                            000 000
+                007 CCI d’Ille-et-Vilaine
                 &lt;/a&gt;
-                &lt;a href="https://www.instagram.com/miliatlas/?hl=fr"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:13px; height:13px;  margin-top:1px"
-                         src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
-                         alt="Lien instagram"&gt;
-                &lt;/a&gt;
-            &lt;/p&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td colspan="4"&gt;
-            {# ADDRESS #}
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit!important; "&gt;
-               &lt;a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
-   href="https://www.mili-atlas.fr"&gt;
-    SAS MILI ATLAS | SIREN :
-    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;892 132 143&lt;/span&gt;
-    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
-    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;3502 2021
-                                            000 000&lt;/span&gt; 007 CCI d’Ille-et-Vilaine
-&lt;/a&gt;
-            &lt;/p&gt;
-        &lt;/td&gt;
-
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
                             </code>
                         </pre>
                     </div>
@@ -444,94 +380,116 @@ a[x-apple-data-detectors] {
                             <tbody>
                             <tr>
                                 <td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px">
-                                    <img class="w1"
-                                         src="{{ employee.picture }}"
-                                         alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                                         width="120px"
-                                         style="display: block; border-radius: 50%">
+                                    <img class="w1" src="{{ employee.picture }}"
+                                         alt="Photo de {{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px"
+                                         style="display: block; border-radius: 50%; max-width: 100%; height: auto;">
                                 </td>
-                                <td width="258" rowspan="2" colspan="2" style="padding-left: 10px">
-                                    <p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; color:inherit; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;">
-                                        <span style="width: 180px;display:inline-block;vertical-align: sub;padding-top: 5px">
-                                            {{ employee.firstName ~ ' ' ~ employee.lastName }}
-                                        </span>
-                                        {% if employee.linkedinUrl is not null %}
-                                            <a href="{{ employee.linkedinUrl }}">
-                                                <img style="width:20px; height:20px;"
-                                                     src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                                                     alt="Profil linkedIn">
-                                            </a>
-                                        {% endif %}
+                                <td width="258" rowspan="2" colspan="2" style="padding-left: 10px;">
+                                    <p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;">
+                    <span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;">
+                        <span style="max-width: 227px; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;">
+                            <span style="width: 180px;display:inline-block;vertical-align: bottom;padding-top: 5px">Lucas ALLARD</span>
+                            {% if employee.linkedinUrl is not null %}
+                                <a href="{{ employee.linkedinUrl }}" style="width: 20px;margin-bottom: 1px">
+                            <img style="width:20px; height:20px;vertical-align:bottom"
+                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                 alt="Profil linkedIn">
+                        </a>
+                            {% endif %}
+                        </span>
+                    </span>
                                     </p>
-                                    <p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif;font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit;">
-                                        {{ employee.position }}
+
+                                    <p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; width: max-content">
+                    <span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;">
+                        <span style="max-width: 227px; font-family:Montserrat, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;">{{ employee.position }}</span>
+                    </span>
                                     </p>
 
                                     <hr width="150" align="left" margin-right="40px">
 
-                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
-                                        <a href="tel: {{ employee.phoneNumber }}"
-                                           style="text-decoration:none;  color: inherit; "
-                                        >{{ formattedPhoneNumber }}</a>
+                                    {% if employee.phoneNumber is not null %}
+                                        <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
+                                            <a href="tel:{{ employee.phoneNumber }}"
+                                               style="text-decoration:none;  color: inherit; "
+                                            >{{formattedPhoneNumber}}</a>
+                                        </p>
+                                    {% endif %}
+
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; ">
+                    <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;">
+                        <a href="mailto:{{employee.secondEmail}}" style="text-decoration:none;  color: inherit; ">{{employee.secondEmail}}</a>
+                    </span>
                                     </p>
-                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;">
-                                        <a href="mailto:{{ employee.secondEmail }}"
-                                           style="text-decoration:none; color: inherit">{{ employee.secondEmail }}</a>
-                                    </p>
-                                    <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit; font-size: 11px; line-height:11px; margin:0; padding:0;">
-                                        <a href="https://www.mili-atlas.fr"
-                                           style="text-decoration: none; color:inherit; font-weight: 400">www.mili-invest.fr</a>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; ">
+                    <span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;">
+                        <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;">
+                            <a href="https://www.mili-invest.fr"
+                               style="text-decoration: none; color: inherit; ; font-weight: 400!important">
+                                www.mili-invest.fr
+                            </a>
+                        </span>
+                    </span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w2" height="30" width="100" valign="middle">
-                                    <a href="https://www.mili-invest.fr">
-                                        <img src="https://mili-atlas.fr/wp-content/uploads/Invest_V3.png"
-                                             alt="topographie Mili Invest"
-                                             style="display: block; max-width: 120px">
+                                <td class="w2" width="78" valign="top">
+                                    <a href="https://www.mili-atlas.fr">
+                                        <img class="light-img"
+                                             src="https://mili-atlas.fr/wp-content/uploads/fond-signature-invest.png"                         alt="Mili Atlas"
+                                             style="display: block;max-width:78px">
                                     </a>
-                                    <p style="text-align: center; margin: 0">
-                                        <a href="https://www.linkedin.com/company/mili-invest/"
-                                           style="text-decoration: none;">
-                                            <img style="width:13px; height:13px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                                                 alt="Lien linkedIn">
-                                        </a>
-                                        <a href="https://www.facebook.com/Mili-Invest-105867161974244"
-                                           style="text-decoration: none;">
-                                            <img style="width:13px; height:13px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
-                                                 alt="Lien facebook">
-                                        </a>
-                                        <a href="https://www.instagram.com/miliinvest/"
-                                           style="text-decoration: none;">
-                                            <img style="width:13px; height:13px; margin-top:1px"
-                                                 src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
-                                                 alt="Lien instagram">
-                                        </a>
+                                    <p style="text-align: center; margin: 0.5em 0 0">
+                    <span
+                            style="text-align: center; margin: 12px 0px 0px;">
+                        <span
+                                style="text-align: center; margin: 2px 0px 0px;">
+                            <a
+                                    href="https://www.linkedin.com/company/mili-invest/" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                        alt="Lien linkedIn">
+                            </a>
+                            <a
+                                    href="https://www.facebook.com/Mili-Invest-105867161974244" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
+                                        alt="Lien facebook">
+                            </a>
+                            <a
+                                    href="https://www.instagram.com/miliinvest/" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px;  margin-top:1px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
+                                        alt="Lien instagram">
+                            </a>
+                        </span>
+                    </span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td colspan="4">
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; ">
-                                        <a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
-                                           href="https://www.mili-atlas.fr">
-                                            SAS MILI ATLAS | SIREN :
-                                            <span style="text-decoration: none!important;color: #000000!important;">892 132 143</span>
-                                            - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
-                                            <span style="text-decoration: none!important;color: #000000!important;">3502 2021
-                                            000 000</span> 007 CCI d’Ille-et-Vilaine
-                                        </a>
+                                <td colspan="4" style="padding-left: 10px">
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 0; color: inherit!important; ">
+                    <span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 6px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;">
+                        <a style="font-family: Montserrat Regular, sans-serif; font-size: 6px; line-height: 8px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;text-decoration:none!important">
+                            SAS MILI ATLAS | SIREN :
+                   892 132 143
+                    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
+                   3502 2021
+                                                            000 000
+                007 CCI d’Ille-et-Vilaine
+                </a>
+                    </span>
                                     </p>
                                 </td>
-
                             </tr>
                             </tbody>
-                        </table>
-                    </div>
+                        </table>                    </div>
                     <h4 class="p-5">Rendu HTML/CSS Mili-Invest : </h4>
                     <div class="d-flex justify-content-center align-items-center w-100">
                         <button type="buttton" class="btn btn--blue w-25 text-light mb-5 js-copy"
@@ -542,184 +500,122 @@ a[x-apple-data-detectors] {
                     <div class="w-100">
                         <pre class="border border-4 w-75  m-auto" style="height: 200px">
                             <code class="text-danger" id="invest-signature">
-&lt;style&gt;
-    hr {
-        margin: 1rem 0 !important;
-    }
+&lt;div dir="auto"&gt;
+    &lt;table width="523px" border="0" cellspacing="0" cellpadding="0"&gt;
+        &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px"&gt;
+                &lt;img class="w1" src="{{ employee.picture }}"
+                     alt="Photo de {{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px"
+                     style="display: block; border-radius: 50%; max-width: 100%; height: auto;"&gt;
+            &lt;/td&gt;
+            &lt;td width="258" rowspan="2" colspan="2" style="padding-left: 10px;"&gt;
+                &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;"&gt;
+                    &lt;span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;"&gt;
+                        &lt;span style="max-width: 227px; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;"&gt;
+                            &lt;span style="width: 180px;display:inline-block;vertical-align: bottom;padding-top: 5px"&gt;Lucas ALLARD&lt;/span&gt;
+                            {% if employee.linkedinUrl is not null %}
+                                &lt;a href="{{ employee.linkedinUrl }}" style="width: 20px;margin-bottom: 1px"&gt;
+                                &lt;img style="width:20px; height:20px;vertical-align:bottom"
+                                src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                alt="Profil linkedIn"&gt;
+                                &lt;/a&gt;
+                            {% endif %}
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
 
-    .mobile {
-        display: none !important;
-    }
+                &lt;p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit; width: max-content"&gt;
+                    &lt;span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;"&gt;
+                        &lt;span style="max-width: 227px; font-family:Montserrat, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: inherit; width: max-content;"&gt;{{ employee.position }}&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
 
-    .mobileplein {
-        display: none !important;
-    }
+                &lt;hr width="150" align="left" margin-right="40px"&gt;
 
-    a[x-apple-data-detectors] {
-        color: inherit !important;
-        text-decoration: none !important;
-        font-size: inherit !important;
-        font-family: inherit !important;
-        font-weight: inherit !important;
-        line-height: inherit !important;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .bck {
-            background-position: 0 134px !important;
-        }
-
-        .tm {
-            width: 310px !important;
-        }
-
-        img.tm {
-            height: auto !important;
-        }
-
-        .tm2 {
-            width: 260px !important;
-        }
-
-        img.tm2 {
-            height: auto !important;
-        }
-
-        .desktop {
-            display: none !important;
-        }
-
-        .block {
-            display: block !important;
-        }
-
-        .mobile {
-            display: block !important;
-        }
-
-        .centre {
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
-
-        .tcentre {
-            text-align: center;
-        }
-
-        .w1 {
-            width: 80px !important;
-            height: auto !important
-        }
-
-        .w2 {
-            width: 150px !important
-        }
-
-        .w3 {
-            width: 80px !important;
-            height: auto !important
-        }
-
-        .w4 {
-            width: 10px !important
-        }
-
-        .ml {
-            width: 215px !important;
-            height: auto !important;
-        }
-    }
-&lt;/style&gt;
-&lt;table width="523px" border="0" cellspacing="0" cellpadding="0"&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td width="155" rowspan="2" valign="middle" class="w1" style="padding: 0 0 0 20px"&gt;
-            &lt;img class="w1"
-                 src="{{ employee.picture }}"
-                 alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                 width="120px"
-                 style="display: block; border-radius: 50%"&gt;
-        &lt;/td&gt;
-        &lt;td width="258" rowspan="2" colspan="2" style="padding-left: 10px"&gt;
-            &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; color:inherit; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0;"&gt;
-                                        &lt;span style="width: 180px;display:inline-block;vertical-align: sub;padding-top: 5px"&gt;
-                                            {{ employee.firstName ~ ' ' ~ employee.lastName }}
-                                        &lt;/span&gt;
-                {% if employee.linkedinUrl is not null %}
-                    &lt;a href="{{ employee.linkedinUrl }}"&gt;
-                    &lt;img style="width:20px; height:20px;"
-                    src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                    alt="Profil linkedIn"&gt;
-                    &lt;/a&gt;
+                {% if employee.phoneNumber is not null %}
+                    &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
+                    &lt;a href="tel:{{ employee.phoneNumber }}"
+                    style="text-decoration:none;  color: inherit; "
+                    &gt;{{formattedPhoneNumber}}&lt;/a&gt;
+                    &lt;/p&gt;
                 {% endif %}
-            &lt;/p&gt;
-            &lt;p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif;font-size: 11px; line-height:15px; margin:0; padding:0; color: inherit;"&gt;
-                {{ employee.position }}
-            &lt;/p&gt;
 
-            &lt;hr width="150" align="left" margin-right="40px"&gt;
-
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
-                &lt;a href="tel: {{ employee.phoneNumber }}"
-                   style="text-decoration:none;  color: inherit; "
-                &gt;{{ formattedPhoneNumber }}&lt;/a&gt;
-            &lt;/p&gt;
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;"&gt;
-                &lt;a href="mailto:{{ employee.secondEmail }}"
-                   style="text-decoration:none; color: inherit"&gt;{{ employee.secondEmail }}&lt;/a&gt;
-            &lt;/p&gt;
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit; font-size: 11px; line-height:11px; margin:0; padding:0;"&gt;
-                &lt;a href="https://www.mili-atlas.fr"
-                   style="text-decoration: none; color:inherit; font-weight: 400"&gt;www.mili-invest.fr&lt;/a&gt;
-            &lt;/p&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td class="w2" height="30" width="100" valign="middle"&gt;
-            &lt;a href="https://www.mili-invest.fr"&gt;
-                &lt;img src="https://mili-atlas.fr/wp-content/uploads/Invest_V3.png"
-                     alt="topographie Mili Invest"
-                     style="display: block;max-width:120px"&gt;
-            &lt;/a&gt;
-            &lt;p style="text-align: center; margin: 0"&gt;
-                &lt;a href="https://www.linkedin.com/company/mili-invest/"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:13px; height:13px"
-                         src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
-                         alt="Lien linkedIn"&gt;
+                &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
+                    &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;"&gt;
+                        &lt;a href="mailto:{{employee.secondEmail}}" style="text-decoration:none;  color: inherit; "&gt;{{employee.secondEmail}}&lt;/a&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;"&gt;
+                        &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: inherit;"&gt;
+                            &lt;a href="https://www.mili-invest.fr"
+                               style="text-decoration: none; color: inherit; ; font-weight: 400!important"&gt;
+                                www.mili-invest.fr
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td class="w2" width="78" valign="top"&gt;
+                &lt;a href="https://www.mili-atlas.fr"&gt;
+                    &lt;img class="light-img"
+                         src="https://mili-atlas.fr/wp-content/uploads/fond-signature-invest.png"                         alt="Mili Atlas"
+                         style="display: block;max-width:78px"&gt;
                 &lt;/a&gt;
-                &lt;a href="https://www.facebook.com/Mili-Invest-105867161974244"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:13px; height:13px"
-                         src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
-                         alt="Lien facebook"&gt;
+                &lt;p style="text-align: center; margin: 0.5em 0 0"&gt;
+                    &lt;span
+                            style="text-align: center; margin: 12px 0px 0px;"&gt;
+                        &lt;span
+                                style="text-align: center; margin: 2px 0px 0px;"&gt;
+                            &lt;a
+                                    href="https://www.linkedin.com/company/mili-invest/" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_in.png"
+                                        alt="Lien linkedIn"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.facebook.com/Mili-Invest-105867161974244" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
+                                        alt="Lien facebook"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.instagram.com/miliinvest/" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px;  margin-top:1px"
+                                        src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
+                                        alt="Lien instagram"&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td colspan="4" style="padding-left: 10px"&gt;
+                &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 0; color: inherit!important; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 6px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;"&gt;
+                        &lt;a style="font-family: Montserrat Regular, sans-serif; font-size: 6px; line-height: 8px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: inherit !important;text-decoration:none!important"&gt;
+                            SAS MILI ATLAS | SIREN :
+                   892 132 143
+                    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
+                   3502 2021
+                                                            000 000
+                007 CCI d’Ille-et-Vilaine
                 &lt;/a&gt;
-                &lt;a href="https://www.instagram.com/miliinvest/"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:13px; height:13px; margin-top:1px"
-                         src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_insta-1.png"
-                         alt="Lien instagram"&gt;
-                &lt;/a&gt;
-            &lt;/p&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td colspan="4"&gt;
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 10px; color: inherit; "&gt;
-              &lt;a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
-   href="https://www.mili-atlas.fr"&gt;
-    SAS MILI ATLAS | SIREN :
-    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;892 132 143&lt;/span&gt;
-    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
-    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;3502 2021 000 000&lt;/span&gt; 007 CCI d’Ille-et-Vilaine
-&lt;/a&gt;
-            &lt;/p&gt;
-        &lt;/td&gt;
-
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
                             </code>
                         </pre>
                     </div>
@@ -730,89 +626,118 @@ a[x-apple-data-detectors] {
                     <h4 class="p-5">Signature 1806-Patrimoine :</h4>
                     <div>
                         <table width="523px" border="0" cellspacing="0" cellpadding="0"
-                               style="background-color: #0A0A0A; padding: 15px 10px">
+                               style="background-color: #0A0A0A; padding: 15px 10px"
+                        >
                             <tbody>
                             <tr>
-                                <td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px">
-                                    <img class="w1"
-                                         src="{{ employee.picture }}"
-                                         alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                                         width="120px"
-                                         style="display: block; border-radius: 50%;margin: 20px 20px">
+                                <td width="155" rowspan="2" valign="middle" class="w1" style="padding: 20px 0 0 20px">
+                                    <img class="w1" src="{{ employee.picture }}"
+                                         alt="Photo de {{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px"
+                                         style="display: block; border-radius: 50%; max-width: 100%; height: auto;">
                                 </td>
-                                <td width="258" rowspan="2" colspan="2">
-                                    <p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:10px; font-weight: bold; margin:0; padding:0; color: #F8F9FA">
-                                        <span style="width: 180px;display:inline-block;vertical-align: sub;padding-top: 5px">{{ employee.firstName ~ ' ' ~ employee.lastName }}</span>
-                                        {% if employee.linkedinUrl is not null %}
-                                            <a href="{{ employee.linkedinUrl }}">
-                                                <img style="width:20px; height:20px" valign="middle"
-                                                     src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
-                                                     alt="Profil linkedIn">
-                                            </a>
-                                        {% endif %}
+                                <td width="258" rowspan="2" colspan="2" style="padding: 20px 0 0 10px;">
+                                    <p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: #F8F9FA;">
+                    <span style="max-width: 227px; color: #F8F9FA; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: #F8F9FA;">
+                        <span style="max-width: 227px ;color: #F8F9FA; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: #F8F9FA;">
+                            <span style="width: 180px;color: #F8F9FA;display:inline-block;vertical-align: bottom;padding-top: 5px">Lucas ALLARD</span>
+                            {% if employee.linkedinUrl is not null %}
+                                <a href="{{ employee.linkedinUrl }}" style="color: #F8F9FA;width: 20px;margin-bottom: 1px">
+                            <img style="width:20px; height:20px;vertical-align:bottom"
+                                 src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
+                                 alt="Profil linkedIn">
+                        </a>
+                            {% endif %}
+                        </span>
+                    </span>
                                     </p>
-                                    <p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:10px; margin:0; padding:0; color: #F8F9FA">
-                                        {{ employee.position }}
 
+                                    <p style="width: max-content; color: #F8F9FA;max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; width: max-content">
+                    <span style="max-width: 227px; color: #F8F9FA;font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: #F8F9FA; width: max-content;">
+                        <span style="max-width: 227px; font-family:Montserrat, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: #F8F9FA; width: max-content;">{{ employee.position }}</span>
+                    </span>
                                     </p>
 
-                                    <hr width="150px" align="left" margin-right="40px" style=" color: #F8F9FA">
+                                    <hr width="150" align="left" margin-right="40px" style="color:#F8F9FAFF">
 
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: #F8F9FA">
-                                        <a href="tel:{{ employee.phoneNumber }}"
-                                           style="text-decoration:none;  color: #F8F9FA">{{ formattedPhoneNumber }}</a>
+                                    {% if employee.phoneNumber is not null %}
+                                        <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
+                                            <a href="tel:{{ employee.phoneNumber }}"
+                                               style="text-decoration:none;  color: #F8F9FA; "
+                                            >{{formattedPhoneNumber}}</a>
+                                        </p>
+                                    {% endif %}
+
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: #F8F9FA; ">
+                    <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: #F8F9FA;">
+                        <a href="mailto:{{employee.thirdEmail}}" style="text-decoration:none;  color: #F8F9FA; ">{{employee.thirdEmail}}</a>
+                    </span>
                                     </p>
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; color: #F8F9FA ">
-                                        <a href="mailto:{{ employee.thirdEmail }}"
-                                           style="text-decoration:none;  color: #F8F9FA">{{ employee.thirdEmail }}</a>
-                                    </p>
-                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: #F8F9FA">
-                                        <a href="https://www.1806-patrimoine.fr"
-                                           style="text-decoration: none;  color: #F8F9FA; font-weight: 400">www.1806-patrimoine.fr</a>
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:6px 0 0; padding:0; color: #F8F9FA; ">
+                    <span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: #F8F9FA;">
+                        <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: #F8F9FA;">
+                            <a href="https://www.1806-patrimoine.fr"
+                               style="text-decoration: none; color: #F8F9FA; ; font-weight: 400!important">
+                                www.1806-patrimoine.fr
+                            </a>
+                        </span>
+                    </span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w2" height="30" width="131" valign="middle">
+                                <td class="w2" width="131" valign="top" style="padding: 20px 0 0">
                                     <a href="https://www.1806-patrimoine.fr">
-                                        <img src="https://1806-patrimoine.fr/wp-content/uploads/2022/03/1806-Patrimoine_fond_fonce-300x172.png"
+                                        <img class="light-img"
+                                             src="https://1806-patrimoine.fr/wp-content/uploads/2022/03/1806-Patrimoine_fond_fonce-300x172.png"
                                              alt="Mili Atlas"
                                              style="display: block;min-width: 131px; padding-right: 20px; max-width:120px">
                                     </a>
-                                    <p style="text-align: center; padding-top: 20px">
-                                        <a href="https://www.linkedin.com/company/1806-patrimoine/"
-                                           style="text-decoration: none;">
-                                            <img style="width:15px; height:15px"
-                                                 src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
-                                                 alt="Lien linkedIn">
-                                        </a>
-                                        <a href="https://www.facebook.com/1806Patrimoine"
-                                           style="text-decoration: none;">
-                                            <img style="width:15px; height:15px"
-                                                 src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_fb.png"
-                                                 alt="Lien facebook">
-                                        </a>
-                                        <a href="https://www.instagram.com/1806patrimoine/"
-                                           style="text-decoration: none;">
-                                            <img style="width:15px; height:15px"
-                                                 src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_insta.png"
-                                                 alt="Lien instagram">
-                                        </a>
+                                    <p style="text-align: center; margin: 0.5em 0 0">
+                    <span
+                            style="text-align: center; margin: 12px 0px 0px;">
+                        <span
+                                style="text-align: center; margin: 2px 0px 0px;">
+                            <a
+                                    href="https://www.linkedin.com/company/1806-patrimoine/"
+                                    style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
+                                        alt="Lien linkedIn">
+                            </a>
+                            <a
+                                    href="https://www.facebook.com/1806Patrimoine" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_fb.png"
+                                        alt="Lien facebook">
+                            </a>
+                            <a
+                                    href="https://www.instagram.com/1806patrimoine/" style="text-decoration: none;">
+                                <img
+                                        style="width:13px; height:13px;  margin-top:1px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_insta.png"
+                                        alt="Lien instagram">
+                            </a>
+                        </span>
+                    </span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td colspan="4">
-                                    <p style="font-family: 'Montserrat Regular', sans-serif;font-size: 11px;line-height:6px;word-spacing: 2px;margin:0;padding: 10px 10px 10px 0;color: inherit;">
-                                        <a style="font-size: 0.4rem; text-decoration: none!important;color: #ffffff!important;"
-                                           href="https://www.mili-atlas.fr">
-                                            SAS MILI ATLAS | SIREN :
-                                            <span style="text-decoration: none!important;color: #ffffff!important;">892 132 143</span>
-                                            - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
-                                            <span style="text-decoration: none!important;color: #ffffff!important;">3502 2021
-                                            000 000</span> 007 CCI d’Ille-et-Vilaine
-                                        </a>
+                                <td colspan="4" style="padding-left: 10px">
+                                    <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 0; color: #F8F9FA!important; ">
+                    <span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 6px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: #F8F9FA !important;">
+                        <a style="font-family: Montserrat Regular, sans-serif; font-size: 6px; line-height: 8px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: #F8F9FA !important;text-decoration:none!important">
+                            SAS MILI ATLAS | SIREN :
+                   892 132 143
+                    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
+                   3502 2021
+                                                            000 000
+                007 CCI d’Ille-et-Vilaine
+                </a>
+                    </span>
                                     </p>
                                 </td>
                             </tr>
@@ -829,183 +754,125 @@ a[x-apple-data-detectors] {
                     <div class="w-100">
                         <pre class="border border-4 w-75  m-auto" style="height: 200px">
                             <code class="text-danger" id="patrimoine-signature">
-&lt;style&gt;
-    hr {
-        margin: 1rem 0 !important;
-    }
-
-    .mobile {
-        display: none !important;
-    }
-
-    .mobileplein {
-        display: none !important;
-    }
-
-    a[x-apple-data-detectors] {
-        color: inherit !important;
-        text-decoration: none !important;
-        font-size: inherit !important;
-        font-family: inherit !important;
-        font-weight: inherit !important;
-        line-height: inherit !important;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .bck {
-            background-position: 0 134px !important;
-        }
-
-        .tm {
-            width: 310px !important;
-        }
-
-        img.tm {
-            height: auto !important;
-        }
-
-        .tm2 {
-            width: 260px !important;
-        }
-
-        img.tm2 {
-            height: auto !important;
-        }
-
-        .desktop {
-            display: none !important;
-        }
-
-        .block {
-            display: block !important;
-        }
-
-        .mobile {
-            display: block !important;
-        }
-
-        .centre {
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
-
-        .tcentre {
-            text-align: center;
-        }
-
-        .w1 {
-            width: 80px !important;
-            height: auto !important
-        }
-
-        .w2 {
-            width: 150px !important
-        }
-
-        .w3 {
-            width: 80px !important;
-            height: auto !important
-        }
-
-        .w4 {
-            width: 10px !important
-        }
-
-        .ml {
-            width: 215px !important;
-            height: auto !important;
-        }
-    }
-&lt;/style&gt;
-&lt;table width="523px" border="0" cellspacing="0" cellpadding="0"
-       style="background-color: #0A0A0A; padding: 15px 10px"&gt;
+&lt;table width="580px" border="0" cellspacing="0" cellpadding="0"
+       style="background-color: #0A0A0A; padding: 15px 10px"
+&gt;
     &lt;tbody&gt;
     &lt;tr&gt;
-        &lt;td width="155" rowspan="2" valign="middle" class="w1" margin-right="20px"&gt;
-            &lt;img class="w1"
-                 src="{{ employee.picture }}"
-                 alt="Profil {{ employee.firstName ~ ' ' ~ employee.lastName }}"
-                 width="120px"
-                 style="display: block; border-radius: 50%;margin: 20px 20px"&gt;
+        &lt;td width="155" rowspan="2" valign="middle" class="w1" style="padding: 20px 0 0 20px"&gt;
+            &lt;img class="w1" src="{{ employee.picture }}"
+                 alt="Photo de {{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px"
+                 style="display: block; border-radius: 50%; max-width: 100%; height: auto;"&gt;
         &lt;/td&gt;
-        &lt;td width="258" rowspan="2" colspan="2"&gt;
-            &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:10px; font-weight: bold; margin:0; padding:0; color: #F8F9FA"&gt;
-                &lt;span style="width: 180px;display:inline-block;vertical-align: sub;padding-top: 5px"&gt;{{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;/span&gt;
-                {% if employee.linkedinUrl is not null %}
-                    &lt;a href="{{ employee.linkedinUrl }}"&gt;
-                    &lt;img style="width:20px; height:20px" valign="middle"
-                    src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
-                    alt="Profil linkedIn"&gt;
-                    &lt;/a&gt;
-                {% endif %}
+        &lt;td width="258" rowspan="2" colspan="2" style="padding: 20px 0 0 10px;"&gt;
+            &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: #F8F9FA;"&gt;
+                    &lt;span style="max-width: 227px; color: #F8F9FA; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                        &lt;span style="max-width: 227px ;color: #F8F9FA; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                            &lt;span style="width: 180px;color: #F8F9FA;display:inline-block;vertical-align: bottom;padding-top: 5px"&gt;Lucas ALLARD&lt;/span&gt;
+                            {% if employee.linkedinUrl is not null %}
+                                &lt;a href="{{ employee.linkedinUrl }}" style="color: #F8F9FA;width: 20px;margin-bottom: 1px"&gt;
+                                &lt;img style="width:20px; height:20px;vertical-align:bottom"
+                                src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
+                                alt="Profil linkedIn"&gt;
+                                &lt;/a&gt;
+                            {% endif %}
+                        &lt;/span&gt;
+                    &lt;/span&gt;
             &lt;/p&gt;
-            &lt;p style="width: max-content; max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:10px; margin:0; padding:0; color: #F8F9FA"&gt;
-                {{ employee.position }}
 
+            &lt;p style="width: max-content; color: #F8F9FA;max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; width: max-content"&gt;
+                    &lt;span style="max-width: 227px; color: #F8F9FA;font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: #F8F9FA; width: max-content;"&gt;
+                        &lt;span style="max-width: 227px; font-family:Montserrat, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: #F8F9FA; width: max-content;"&gt;{{ employee.position }}&lt;/span&gt;
+                    &lt;/span&gt;
             &lt;/p&gt;
 
-            &lt;hr width="150px" align="left" margin-right="40px" style=" color: #F8F9FA"&gt;
+            &lt;hr width="150" align="left" margin-right="40px" style="color:#F8F9FAFF"&gt;
 
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0;  color: #F8F9FA"&gt;
+            {% if employee.phoneNumber is not null %}
+                &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
                 &lt;a href="tel:{{ employee.phoneNumber }}"
-                   style="text-decoration:none;  color: #F8F9FA"&gt;{{ formattedPhoneNumber }}&lt;/a&gt;
+                style="text-decoration:none;  color: #F8F9FA; "
+                &gt;{{formattedPhoneNumber}}&lt;/a&gt;
+                &lt;/p&gt;
+            {% endif %}
+
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: #F8F9FA; "&gt;
+                    &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: #F8F9FA;"&gt;
+                        &lt;a href="mailto:{{employee.thirdEmail}}" style="text-decoration:none;  color: #F8F9FA; "&gt;{{employee.thirdEmail}}&lt;/a&gt;
+                    &lt;/span&gt;
             &lt;/p&gt;
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; color: #F8F9FA "&gt;
-                &lt;a href="mailto:{{ employee.thirdEmail }}"
-                   style="text-decoration:none;  color: #F8F9FA"&gt;{{ employee.thirdEmail }}&lt;/a&gt;
-            &lt;/p&gt;
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; color: #F8F9FA"&gt;
-                &lt;a href="https://www.1806-patrimoine.fr"
-                   style="text-decoration: none;  color: #F8F9FA; font-weight: 400"&gt;www.1806-patrimoine.fr&lt;/a&gt;
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:6px 0 0; padding:0; color: #F8F9FA; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                        &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                            &lt;a href="https://www.1806-patrimoine.fr"
+                               style="text-decoration: none; color: #F8F9FA; ; font-weight: 400!important"&gt;
+                                www.1806-patrimoine.fr
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
             &lt;/p&gt;
         &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-        &lt;td class="w2" height="30" width="131" valign="middle"&gt;
+        &lt;td class="w2" width="131" valign="top" style="padding: 20px 0 0"&gt;
             &lt;a href="https://www.1806-patrimoine.fr"&gt;
-                &lt;img src="https://1806-patrimoine.fr/wp-content/uploads/2022/03/1806-Patrimoine_fond_fonce-300x172.png"
+                &lt;img class="light-img"
+                     src="https://1806-patrimoine.fr/wp-content/uploads/2022/03/1806-Patrimoine_fond_fonce-300x172.png"
                      alt="Mili Atlas"
-                     style="display: block;min-width: 131px; padding-right: 20px;max-width:120px" &gt;
+                     style="display: block;min-width: 131px; padding-right: 20px; max-width:120px"&gt;
             &lt;/a&gt;
-            &lt;p style="text-align: center; padding-top: 20px"&gt;
-                &lt;a href="https://www.linkedin.com/company/1806-patrimoine/"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:15px; height:15px"
-                         src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
-                         alt="Lien linkedIn"&gt;
-                &lt;/a&gt;
-                &lt;a href="https://www.facebook.com/1806Patrimoine"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:15px; height:15px"
-                         src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_fb.png"
-                         alt="Lien facebook"&gt;
-                &lt;/a&gt;
-                &lt;a href="https://www.instagram.com/1806patrimoine/"
-                   style="text-decoration: none;"&gt;
-                    &lt;img style="width:15px; height:15px"
-                         src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_insta.png"
-                         alt="Lien instagram"&gt;
-                &lt;/a&gt;
+            &lt;p style="text-align: center; margin: 0.5em 0 0"&gt;
+                    &lt;span
+                            style="text-align: center; margin: 12px 0px 0px;"&gt;
+                        &lt;span
+                                style="text-align: center; margin: 2px 0px 0px;"&gt;
+                            &lt;a
+                                    href="https://www.linkedin.com/company/1806-patrimoine/"
+                                    style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
+                                        alt="Lien linkedIn"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.facebook.com/1806Patrimoine" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_fb.png"
+                                        alt="Lien facebook"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.instagram.com/1806patrimoine/" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px;  margin-top:1px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_insta.png"
+                                        alt="Lien instagram"&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
             &lt;/p&gt;
         &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;
-        &lt;td colspan="4"&gt;
-            &lt;p style="font-family: 'Montserrat Regular', sans-serif;font-size: 11px;line-height:6px;word-spacing: 2px;margin:0;padding: 10px 10px 10px 0;color: inherit;"&gt;
-               &lt;a style="font-size: 0.4rem; text-decoration: none!important;color: #ffffff!important;"
-   href="https://www.mili-atlas.fr"&gt;
-    SAS MILI ATLAS | SIREN :
-    &lt;span style="text-decoration: none!important;color: #ffffff!important;"&gt;892 132 143&lt;/span&gt;
-    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
-    &lt;span style="text-decoration: none!important;color: #ffffff!important;"&gt;3502 2021
-                                            000 000&lt;/span&gt; 007 CCI d’Ille-et-Vilaine
-&lt;/a&gt;
+        &lt;td colspan="4" style="padding-left: 10px"&gt;
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 20px 10px 0; color: #F8F9FA!important; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 6px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: #F8F9FA !important;"&gt;
+                        &lt;a style="font-family: Montserrat Regular, sans-serif; font-size: 6px; line-height: 8px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: #F8F9FA !important;text-decoration:none!important"&gt;
+                            SAS MILI ATLAS | SIREN :
+                   892 132 143
+                    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
+                   3502 2021
+                                                            000 000
+                007 CCI d’Ille-et-Vilaine
+                &lt;/a&gt;
+                    &lt;/span&gt;
             &lt;/p&gt;
         &lt;/td&gt;
     &lt;/tr&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;
+
                             </code>
                         </pre>
                     </div>

@@ -1,10 +1,118 @@
-&lt;a style="font-size: 0.4rem; text-decoration: none!important;color: #000000!important;"
-   href="https://www.mili-atlas.fr"&gt;
-    SAS MILI ATLAS &lt;span
-        style="text-decoration: none!important;color: #000000!important;"&gt;2 rue Claude Chappe 35230 NOYAL-CHÂTILLON-SUR-SEICHE&lt;/span&gt;
-    SIREN :
-    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;892 132 143&lt;/span&gt;
-    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
-    &lt;span style="text-decoration: none!important;color: #000000!important;"&gt;3502 2021
-                                            000 000&lt;/span&gt; 007 CCI d’Ille-et-Vilaine
-&lt;/a&gt;
+&lt;table width="523px" border="0" cellspacing="0" cellpadding="0"
+       style="background-color: #0A0A0A; padding: 15px 10px"
+&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;td width="155" rowspan="2" valign="middle" class="w1" style="padding: 20px 0 0 20px"&gt;
+            &lt;img class="w1" src="{{ employee.picture }}"
+                 alt="Photo de {{ employee.firstName ~ ' ' ~ employee.lastName }}" width="120px"
+                 style="display: block; border-radius: 50%; max-width: 100%; height: auto;"&gt;
+        &lt;/td&gt;
+        &lt;td width="258" rowspan="2" colspan="2" style="padding: 20px 0 0 10px;"&gt;
+            &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: #F8F9FA;"&gt;
+                    &lt;span style="max-width: 227px; color: #F8F9FA; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                        &lt;span style="max-width: 227px ;color: #F8F9FA; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                            &lt;span style="width: 180px;color: #F8F9FA;display:inline-block;vertical-align: bottom;padding-top: 5px"&gt;Lucas ALLARD&lt;/span&gt;
+                            {% if employee.linkedinUrl is not null %}
+                                &lt;a href="{{ employee.linkedinUrl }}" style="color: #F8F9FA;width: 20px;margin-bottom: 1px"&gt;
+                            &lt;img style="width:20px; height:20px;vertical-align:bottom"
+                                 src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
+                                 alt="Profil linkedIn"&gt;
+                        &lt;/a&gt;
+                            {% endif %}
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;p style="width: max-content; color: #F8F9FA;max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; margin:0; padding:0; width: max-content"&gt;
+                    &lt;span style="max-width: 227px; color: #F8F9FA;font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: #F8F9FA; width: max-content;"&gt;
+                        &lt;span style="max-width: 227px; font-family:Montserrat, sans-serif; font-size: 11px; line-height: 15px; margin: 0px; padding: 0px; color: #F8F9FA; width: max-content;"&gt;{{ employee.position }}&lt;/span&gt;
+                    &lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;hr width="150" align="left" margin-right="40px" style="color:#F8F9FAFF"&gt;
+
+            {% if employee.phoneNumber is not null %}
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
+                &lt;a href="tel:{{ employee.phoneNumber }}"
+                   style="text-decoration:none;  color: #F8F9FA; "
+                &gt;{{formattedPhoneNumber}}&lt;/a&gt;
+            &lt;/p&gt;
+            {% endif %}
+
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: #F8F9FA; "&gt;
+                    &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: #F8F9FA;"&gt;
+                        &lt;a href="mailto:{{employee.thirdEmail}}" style="text-decoration:none;  color: #F8F9FA; "&gt;{{employee.thirdEmail}}&lt;/a&gt;
+                    &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:6px 0 0; padding:0; color: #F8F9FA; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                        &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px; padding: 0px; color: #F8F9FA;"&gt;
+                            &lt;a href="https://www.1806-patrimoine.fr"
+                               style="text-decoration: none; color: #F8F9FA; ; font-weight: 400!important"&gt;
+                                www.1806-patrimoine.fr
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+            &lt;/p&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td class="w2" width="131" valign="top" style="padding: 20px 0 0"&gt;
+            &lt;a href="https://www.1806-patrimoine.fr"&gt;
+                &lt;img class="light-img"
+                     src="https://1806-patrimoine.fr/wp-content/uploads/2022/03/1806-Patrimoine_fond_fonce-300x172.png"
+                     alt="Mili Atlas"
+                     style="display: block;min-width: 131px; padding-right: 20px; max-width:120px"&gt;
+            &lt;/a&gt;
+            &lt;p style="text-align: center; margin: 0.5em 0 0"&gt;
+                    &lt;span
+                            style="text-align: center; margin: 12px 0px 0px;"&gt;
+                        &lt;span
+                                style="text-align: center; margin: 2px 0px 0px;"&gt;
+                            &lt;a
+                                    href="https://www.linkedin.com/company/1806-patrimoine/"
+                                    style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
+                                        alt="Lien linkedIn"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.facebook.com/1806Patrimoine" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_fb.png"
+                                        alt="Lien facebook"&gt;
+                            &lt;/a&gt;
+                            &lt;a
+                                    href="https://www.instagram.com/1806patrimoine/" style="text-decoration: none;"&gt;
+                                &lt;img
+                                        style="width:13px; height:13px;  margin-top:1px"
+                                        src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_insta.png"
+                                        alt="Lien instagram"&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/span&gt;
+            &lt;/p&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td colspan="4" style="padding-left: 10px"&gt;
+            &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:6px; word-spacing: 2px; margin:0; padding: 10px 0 10px 0; color: #F8F9FA!important; "&gt;
+                    &lt;span style="font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 6px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: #F8F9FA !important;"&gt;
+                        &lt;a style="font-family: Montserrat Regular, sans-serif; font-size: 6px; line-height: 8px; word-spacing: 2px; margin: 0px; padding: 10px 0px; color: #F8F9FA !important;text-decoration:none!important"&gt;
+                            SAS MILI ATLAS | SIREN :
+                   892 132 143
+                    - RCS RENNES / ORIAS N°21 001 059 | CARTE T ET G N°CPI
+                   3502 2021
+                                                            000 000
+                007 CCI d’Ille-et-Vilaine
+                &lt;/a&gt;
+                    &lt;/span&gt;
+            &lt;/p&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
