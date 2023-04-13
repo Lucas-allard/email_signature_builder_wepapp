@@ -160,13 +160,14 @@
                                         <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
                                             <a href="tel:{{ employee.phoneNumber }}"
                                                style="text-decoration:none;  color: inherit; "
-                                            >{{formattedPhoneNumber}}</a>
+                                            >{{ formattedPhoneNumber }}</a>
                                         </p>
                                     {% endif %}
 
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; ">
                     <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;">
-                        <a href="mailto:{{employee.firstEmail}}" style="text-decoration:none;  color: inherit; ">{{employee.firstEmail}}</a>
+                        <a href="mailto:{{ employee.firstEmail }}"
+                           style="text-decoration:none;  color: inherit; ">{{ employee.firstEmail }}</a>
                     </span>
                                     </p>
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; ">
@@ -263,7 +264,7 @@
                 &lt;p style="max-width: 227px;font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:15px; font-weight: bold; margin:0; padding:0; color: inherit;"&gt;
                     &lt;span style="max-width: 227px; font-family: &quot;Montserrat Regular&quot;, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;"&gt;
                         &lt;span style="max-width: 227px; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: inherit;"&gt;
-                            &lt;span style="width: 180px;display:inline-block;vertical-align: bottom;padding-top: 5px"&gt;Lucas ALLARD&lt;/span&gt;
+                            &lt;span style="width: 180px;display:inline-block;vertical-align: bottom;padding-top: 5px"&gt;{{ employee.firstName ~ ' ' ~ employee.lastName }}&lt;/span&gt;
                             {% if employee.linkedinUrl is not null %}
                                 &lt;a href="{{ employee.linkedinUrl }}" style="width: 20px;margin-bottom: 1px"&gt;
                                 &lt;img style="width:20px; height:20px;vertical-align:bottom"
@@ -287,13 +288,13 @@
                     &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
                     &lt;a href="tel:{{ employee.phoneNumber }}"
                     style="text-decoration:none;  color: inherit; "
-                    &gt;{{formattedPhoneNumber}}&lt;/a&gt;
+                    &gt;{{ formattedPhoneNumber }}&lt;/a&gt;
                     &lt;/p&gt;
                 {% endif %}
 
                 &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
                     &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;"&gt;
-                        &lt;a href="mailto:{{employee.firstEmail}}" style="text-decoration:none;  color: inherit; "&gt;{{employee.firstEmail}}&lt;/a&gt;
+                        &lt;a href="mailto:{{ employee.firstEmail }}" style="text-decoration:none;  color: inherit; "&gt;{{ employee.firstEmail }}&lt;/a&gt;
                     &lt;/span&gt;
                 &lt;/p&gt;
                 &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; "&gt;
@@ -412,13 +413,14 @@
                                         <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
                                             <a href="tel:{{ employee.phoneNumber }}"
                                                style="text-decoration:none;  color: inherit; "
-                                            >{{formattedPhoneNumber}}</a>
+                                            >{{ formattedPhoneNumber }}</a>
                                         </p>
                                     {% endif %}
 
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; ">
                     <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;">
-                        <a href="mailto:{{employee.secondEmail}}" style="text-decoration:none;  color: inherit; ">{{employee.secondEmail}}</a>
+                        <a href="mailto:{{ employee.secondEmail }}"
+                           style="text-decoration:none;  color: inherit; ">{{ employee.secondEmail }}</a>
                     </span>
                                     </p>
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; ">
@@ -437,7 +439,8 @@
                                 <td class="w2" width="78" valign="top">
                                     <a href="https://www.mili-atlas.fr">
                                         <img class="light-img"
-                                             src="https://mili-atlas.fr/wp-content/uploads/fond-signature-invest.png"                         alt="Mili Atlas"
+                                             src="https://mili-atlas.fr/wp-content/uploads/fond-signature-invest.png"
+                                             alt="Mili Atlas"
                                              style="display: block;max-width:78px">
                                     </a>
                                     <p style="text-align: center; margin: 0.5em 0 0">
@@ -453,7 +456,8 @@
                                         alt="Lien linkedIn">
                             </a>
                             <a
-                                    href="https://www.facebook.com/Mili-Invest-105867161974244" style="text-decoration: none;">
+                                    href="https://www.facebook.com/Mili-Invest-105867161974244"
+                                    style="text-decoration: none;">
                                 <img
                                         style="width:13px; height:13px"
                                         src="https://mili-atlas.fr/wp-content/uploads/Icones_Reseaux_fb.png"
@@ -489,7 +493,8 @@
                                 </td>
                             </tr>
                             </tbody>
-                        </table>                    </div>
+                        </table>
+                    </div>
                     <h4 class="p-5">Rendu HTML/CSS Mili-Invest : </h4>
                     <div class="d-flex justify-content-center align-items-center w-100">
                         <button type="buttton" class="btn btn--blue w-25 text-light mb-5 js-copy"
@@ -537,13 +542,13 @@
                     &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
                     &lt;a href="tel:{{ employee.phoneNumber }}"
                     style="text-decoration:none;  color: inherit; "
-                    &gt;{{formattedPhoneNumber}}&lt;/a&gt;
+                    &gt;{{ formattedPhoneNumber }}&lt;/a&gt;
                     &lt;/p&gt;
                 {% endif %}
 
                 &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: inherit; "&gt;
                     &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: inherit;"&gt;
-                        &lt;a href="mailto:{{employee.secondEmail}}" style="text-decoration:none;  color: inherit; "&gt;{{employee.secondEmail}}&lt;/a&gt;
+                        &lt;a href="mailto:{{ employee.secondEmail }}" style="text-decoration:none;  color: inherit; "&gt;{{ employee.secondEmail }}&lt;/a&gt;
                     &lt;/span&gt;
                 &lt;/p&gt;
                 &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0; padding:0; color: inherit; "&gt;
@@ -641,7 +646,8 @@
                         <span style="max-width: 227px ;color: #F8F9FA; font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 15px; font-weight: bold; margin: 0px; padding: 0px; color: #F8F9FA;">
                             <span style="width: 180px;color: #F8F9FA;display:inline-block;vertical-align: bottom;padding-top: 5px">Lucas ALLARD</span>
                             {% if employee.linkedinUrl is not null %}
-                                <a href="{{ employee.linkedinUrl }}" style="color: #F8F9FA;width: 20px;margin-bottom: 1px">
+                                <a href="{{ employee.linkedinUrl }}"
+                                   style="color: #F8F9FA;width: 20px;margin-bottom: 1px">
                             <img style="width:20px; height:20px;vertical-align:bottom"
                                  src="https://1806-patrimoine.fr/wp-content/uploads/2023/02/1806_in.png"
                                  alt="Profil linkedIn">
@@ -663,13 +669,14 @@
                                         <p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; ">
                                             <a href="tel:{{ employee.phoneNumber }}"
                                                style="text-decoration:none;  color: #F8F9FA; "
-                                            >{{formattedPhoneNumber}}</a>
+                                            >{{ formattedPhoneNumber }}</a>
                                         </p>
                                     {% endif %}
 
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: #F8F9FA; ">
                     <span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: #F8F9FA;">
-                        <a href="mailto:{{employee.thirdEmail}}" style="text-decoration:none;  color: #F8F9FA; ">{{employee.thirdEmail}}</a>
+                        <a href="mailto:{{ employee.thirdEmail }}"
+                           style="text-decoration:none;  color: #F8F9FA; ">{{ employee.thirdEmail }}</a>
                     </span>
                                     </p>
                                     <p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:6px 0 0; padding:0; color: #F8F9FA; ">
@@ -792,13 +799,13 @@
                 &lt;p style="font-family: 'Montserrat Regular', sans-serif;  color:inherit;font-size: 11px; line-height:15px; margin:0 0 2px 0; padding:0; "&gt;
                 &lt;a href="tel:{{ employee.phoneNumber }}"
                 style="text-decoration:none;  color: #F8F9FA; "
-                &gt;{{formattedPhoneNumber}}&lt;/a&gt;
+                &gt;{{ formattedPhoneNumber }}&lt;/a&gt;
                 &lt;/p&gt;
             {% endif %}
 
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:0 0 2px 0; padding:0;  color: #F8F9FA; "&gt;
                     &lt;span style="font-family: Montserrat Regular, sans-serif; font-size: 11px; line-height: 11px; margin: 0px 0px 2px; padding: 0px; color: #F8F9FA;"&gt;
-                        &lt;a href="mailto:{{employee.thirdEmail}}" style="text-decoration:none;  color: #F8F9FA; "&gt;{{employee.thirdEmail}}&lt;/a&gt;
+                        &lt;a href="mailto:{{ employee.thirdEmail }}" style="text-decoration:none;  color: #F8F9FA; "&gt;{{ employee.thirdEmail }}&lt;/a&gt;
                     &lt;/span&gt;
             &lt;/p&gt;
             &lt;p style="font-family: 'Montserrat Regular', sans-serif; font-size: 11px; line-height:11px; margin:6px 0 0; padding:0; color: #F8F9FA; "&gt;
