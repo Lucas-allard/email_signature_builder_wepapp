@@ -143,7 +143,7 @@ class EmployeeController extends AbstractController
 
             $this->employeeRepository->save($employee, true);
 
-            return $this->redirectToRoute('show', ['employee' => $employee->getId()]);
+            return $this->redirectToRoute('app_employee_show', ['employee' => $employee->getId()]);
         }
 
         return $this->render($view, [
